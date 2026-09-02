@@ -6,6 +6,7 @@ Personal portfolio website for Eduardo Ferreira, covering automation, AI integra
 
 - `index.html` — introduction, services, selected work and background
 - `portfolio.html` — project overview and case-study placeholders
+- `assets/Eduardo_Ferreira_CV.pdf` — downloadable CV
 
 ## Run locally
 
