@@ -200,7 +200,8 @@ a { color: inherit; text-decoration: none; }
 .table-wrap { overflow-x: auto; }
 .data-table { width: 100%; border-collapse: collapse; font-size: .78rem; }
 .data-table th { padding: .7rem .75rem; border-bottom: 1px solid var(--line); color: var(--muted); text-align: left; font-size: .68rem; letter-spacing: .05em; text-transform: uppercase; }
-.data-table td { padding: .85rem .75rem; border-bottom: 1px solid #edf0f4; }
+.data-table td { padding: .85rem .75rem; border-bottom: 1px solid #edf0f4; vertical-align: middle; }
+.data-table .status { margin-top: 0; white-space: nowrap; }
 .data-table tbody tr[data-detail] { cursor: pointer; }
 .data-table tbody tr[data-detail]:hover { background: #f6f8fc; }
 .data-table strong { font-size: .8rem; }
@@ -221,8 +222,9 @@ a { color: inherit; text-decoration: none; }
 .field { display: grid; gap: .35rem; }
 .field.wide { grid-column: 1 / -1; }
 .field label { color: var(--muted); font-size: .7rem; font-weight: 800; }
-.field input, .field textarea, .field select { width: 100%; padding: .7rem .75rem; border: 1px solid var(--line); border-radius: 8px; background: #fbfcfe; color: var(--ink); }
-.field textarea { min-height: 92px; resize: vertical; }
+.field input, .field textarea, .field select { width: 100%; min-height: 42px; padding: .7rem .75rem; border: 1px solid var(--line); border-radius: 8px; background: #fbfcfe; color: var(--ink); transition: border-color .18s ease, box-shadow .18s ease, background .18s ease; }
+.field input:focus, .field textarea:focus, .field select:focus { outline: 0; border-color: var(--blue); background: white; box-shadow: 0 0 0 3px rgba(36, 107, 254, .12); }
+.field textarea { min-height: 92px; resize: vertical; line-height: 1.5; }
 .form-actions { display: flex; justify-content: flex-end; gap: .6rem; margin-top: 1rem; }
 
 .check-list { display: grid; gap: .65rem; }
