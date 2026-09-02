@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NDA-safe interactive reconstruction of a global weather and crisis monitoring platform by Eduardo Ferreira.">
+  <title>Weather & Crisis Monitor Demo — Eduardo Ferreira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mockups.css?v=20260902-5">
+</head>
+<body data-demo="weather-crisis-monitor">
+  <header class="demo-topbar demo-shell">
+    <a class="demo-brand" href="../index.html" aria-label="Eduardo Ferreira home"><span class="demo-mark">EF</span><div>Project preview<small>Interactive portfolio demonstration</small></div></a>
+    <div class="topbar-actions"><button class="outline-button" type="button" data-open-dialog="build-dialog">What I built</button><a class="back-link" href="../portfolio.html#weather-risk-monitoring">← Portfolio</a></div>
+  </header>
+
+  <div class="demo-shell">
+    <p class="nda-banner"><span class="nda-dot" aria-hidden="true"></span><strong>Safe reconstruction:</strong> Every alert, location grouping, count, timestamp and scenario is fictional. No live feed, employer site, internal threshold, facility location or response procedure is reproduced.</p>
+
+    <main class="risk-dashboard">
+      <header class="risk-heading">
+        <div><p class="kicker">Global monitoring</p><h1>Weather & Crisis Alert Monitor</h1><p>Prioritised visibility of potentially disruptive events across broad geographic areas.</p></div>
+        <div class="risk-heading-actions"><span class="risk-update"><i aria-hidden="true"></i><span id="risk-update-time">Updated just now</span></span><button id="refresh-alerts" class="outline-button" type="button">↻ Refresh</button></div>
+      </header>
+
+      <section class="risk-overview" aria-label="Global alert overview">
+        <section class="world-map-panel" aria-labelledby="map-title">
+          <div class="panel-head"><div><h2 id="map-title">Global alert map</h2><p>Select a fictional marker to review the alert.</p></div><button class="feature-info" type="button" aria-label="About global alert mapping" data-detail="feature-map">i</button></div>
+          <div class="world-map" aria-label="Simplified world map with fictional alert markers">
+            <svg class="world-map-shape" viewBox="0 0 1000 500" role="img" aria-label="Simplified world map">
+              <path d="M74 104L120 69l87 8 46 34 44 8 35 42-19 41-51 5-24 37-55 8-40-31-48-16-26-47z"/>
+              <path d="M250 264l52 16 26 49-12 43 19 50-27 60-31-26-10-50-28-48 2-48z"/>
+              <path d="M432 100l46-28 60 13 24 24 46 8 27 29-31 21-54-4-29 19-48-8-28 21-34-33z"/>
+              <path d="M470 213l75-20 61 24 21 62-28 47-17 80-49 26-28-70-48-48-12-60z"/>
+              <path d="M612 126l77-44 92 12 56 35 91 28-22 43-72 4-46 34-63-10-42 27-38-43-53-27z"/>
+              <path d="M790 352l55-20 72 24 23 46-38 30-68-4-46-34z"/>
+            </svg>
+
+            <button class="alert-marker extreme" style="--x:24%;--y:27%" type="button" data-alert-id="weather-ca" aria-label="Extreme weather alert in Canada" aria-current="true"><span></span></button>
+            <button class="alert-marker severe" style="--x:44%;--y:23%" type="button" data-alert-id="weather-ie" aria-label="Severe weather alert in Ireland"><span></span></button>
+            <button class="alert-marker crisis" style="--x:48%;--y:29%" type="button" data-alert-id="crisis-fr" aria-label="Severe crisis alert in France"><span></span></button>
+            <button class="alert-marker severe" style="--x:36%;--y:67%" type="button" data-alert-id="weather-br" aria-label="Severe weather alert in Brazil"><span></span></button>
+            <button class="alert-marker extreme" style="--x:83%;--y:36%" type="button" data-alert-id="weather-jp" aria-label="Extreme weather alert in Japan"><span></span></button>
+            <button class="alert-marker crisis" style="--x:55%;--y:71%" type="button" data-alert-id="crisis-za" aria-label="Extreme crisis alert in South Africa"><span></span></button>
+
+            <article id="map-alert-card" class="map-alert-card" aria-live="polite">
+              <div class="map-alert-head"><span id="map-alert-severity" class="severity-badge extreme">Extreme</span><button id="close-map-alert" type="button" aria-label="Close alert details">×</button></div>
+              <h3 id="map-alert-title">Blizzard conditions</h3>
+              <dl><div><dt>Area</dt><dd id="map-alert-area">Canada · Northern regions</dd></div><div><dt>Issued</dt><dd id="map-alert-issued">02 Sep · 14:10 UTC</dd></div><div><dt>Expires</dt><dd id="map-alert-expires">03 Sep · 06:00 UTC</dd></div><div><dt>Type</dt><dd id="map-alert-type">Weather alert</dd></div></dl>
+              <small>Fictional demonstration record</small>
+            </article>
+
+            <div class="map-legend" aria-label="Map legend"><span><i class="extreme"></i>Extreme</span><span><i class="severe"></i>Severe</span><span><i class="crisis"></i>Crisis</span></div>
+          </div>
+        </section>
+
+        <aside class="alert-summary-panel" aria-label="Alert totals">
+          <div class="summary-total"><span>Total alerts</span><strong>9</strong><small>Fictional active records</small></div>
+          <div class="summary-stat extreme"><span>Extreme</span><strong>4</strong><small>Highest priority</small></div>
+          <div class="summary-stat severe"><span>Severe</span><strong>5</strong><small>Close monitoring</small></div>
+          <div class="summary-stat crisis"><span>Crisis alerts</span><strong>3</strong><small>Access disruption</small></div>
+          <div class="country-counts"><h3>Alerts by country</h3><ul><li><span>Ireland</span><strong>2</strong></li><li><span>Canada</span><strong>1</strong></li><li><span>Japan</span><strong>2</strong></li><li><span>Brazil</span><strong>1</strong></li><li><span>Other samples</span><strong>3</strong></li></ul></div>
+        </aside>
+      </section>
+
+      <section class="alerts-panel" aria-labelledby="alerts-title">
+        <div class="alerts-toolbar">
+          <div><h2 id="alerts-title">Active alerts</h2><p>Grouped by country with broad, non-operational affected areas.</p></div>
+          <div class="alert-tabs" role="tablist" aria-label="Alert category">
+            <button id="weather-alerts-tab" class="alert-tab active" type="button" role="tab" aria-selected="true" aria-controls="weather-alerts" tabindex="0" data-alert-tab="weather-alerts"><span>Weather alerts</span><strong>6</strong></button>
+            <button id="crisis-alerts-tab" class="alert-tab" type="button" role="tab" aria-selected="false" aria-controls="crisis-alerts" tabindex="-1" data-alert-tab="crisis-alerts"><span>Crisis alerts</span><strong>3</strong></button>
+          </div>
+        </div>
+
+        <div id="weather-alerts" class="alert-table-panel" role="tabpanel" aria-labelledby="weather-alerts-tab">
+          <div class="table-wrap"><table class="data-table risk-table"><thead><tr><th>Country</th><th>Alerts</th><th>Affected areas</th><th>Severity</th><th>Alert type</th><th>Expires</th></tr></thead><tbody>
+            <tr><td><strong>Ireland</strong></td><td>2</td><td>Western counties, coastal districts</td><td><span class="severity-badge severe">Severe</span></td><td>Wind and coastal flooding</td><td>03 Sep · 02:00</td></tr>
+            <tr><td><strong>Canada</strong></td><td>1</td><td>Northern regions</td><td><span class="severity-badge extreme">Extreme</span></td><td>Blizzard conditions</td><td>03 Sep · 06:00</td></tr>
+            <tr><td><strong>Japan</strong></td><td>2</td><td>Southern prefectures</td><td><span class="severity-badge extreme">Extreme</span></td><td>Tropical storm</td><td>03 Sep · 11:30</td></tr>
+            <tr><td><strong>Brazil</strong></td><td>1</td><td>Coastal states</td><td><span class="severity-badge severe">Severe</span></td><td>Heavy rainfall</td><td>02 Sep · 23:45</td></tr>
+          </tbody></table></div>
+        </div>
+
+        <div id="crisis-alerts" class="alert-table-panel" role="tabpanel" aria-labelledby="crisis-alerts-tab" hidden>
+          <div class="table-wrap"><table class="data-table risk-table"><thead><tr><th>Country</th><th>Alerts</th><th>Affected areas</th><th>Severity</th><th>Alert type</th><th>Expected review</th></tr></thead><tbody>
+            <tr><td><strong>France</strong></td><td>1</td><td>Central urban districts</td><td><span class="severity-badge severe">Severe</span></td><td>Civic demonstration and road closures</td><td>02 Sep · 20:00</td></tr>
+            <tr><td><strong>South Africa</strong></td><td>1</td><td>Selected metropolitan corridors</td><td><span class="severity-badge extreme">Extreme</span></td><td>Regional transport blockade</td><td>03 Sep · 04:00</td></tr>
+            <tr><td><strong>Chile</strong></td><td>1</td><td>Central administrative district</td><td><span class="severity-badge severe">Severe</span></td><td>Public gathering and street restrictions</td><td>03 Sep · 01:30</td></tr>
+          </tbody></table></div>
+          <p class="scenario-note"><strong>Simulation notice:</strong> Crisis rows are invented scenarios for demonstrating product behaviour. They do not describe current or historical events.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="build-dialog" class="modal">
+    <div class="modal-head"><div><h2>What I built</h2><p>My contribution to the original project, described at a safe level.</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div>
+    <div class="modal-body"><span class="synthetic-label">Portfolio reconstruction</span><p>I designed a serverless monitoring platform that collected public weather and emergency information, applied configurable geospatial filtering and presented relevant events through a global dashboard.</p><div class="build-grid"><div class="build-item"><span>Data ingestion</span><strong>Connected public information sources through structured APIs</strong></div><div class="build-item"><span>Processing</span><strong>Used serverless workflows to classify and refresh alert data</strong></div><div class="build-item"><span>Geospatial logic</span><strong>Filtered broad alert areas against configured monitoring zones</strong></div><div class="build-item"><span>Web product</span><strong>Built the map, severity overview and grouped alert tables</strong></div><div class="build-item"><span>Automation</span><strong>Prepared targeted notification and ticketing workflows</strong></div><div class="build-item"><span>Outcome</span><strong>Improved early visibility of potentially disruptive events</strong></div></div><h3>NDA boundary</h3><p>This demonstration excludes original code, API providers, monitored locations, coordinates, thresholds, notification recipients, ticketing rules, architecture and operational procedures. The interface and all visible data were independently created for this portfolio.</p></div>
+    <div class="modal-actions"><button class="solid-button" type="button" data-close-dialog>Close</button></div>
+  </dialog>
+
+  <dialog id="detail-dialog" class="modal"><div class="modal-head"><div><h2 data-detail-title>Feature detail</h2><p>Interactive product explanation</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div><div class="modal-body" data-detail-body></div><div class="modal-actions"><button class="solid-button" type="button" data-close-dialog>Close</button></div></dialog>
+  <template id="feature-map" data-title="Geospatial alert view"><p>Alert markers make broad geographic patterns easier to inspect. Selecting a marker reveals a fictional area, issue time, expiry time, type and severity. No real monitored location or precise coordinate is included.</p></template>
+
+  <div id="demo-toast" class="demo-toast" role="status" aria-live="polite"></div>
+  <script src="mockups.js?v=20260902-5"></script>
+</body>
+</html>
