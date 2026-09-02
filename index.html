@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Eduardo Ferreira — automation, AI integration, cloud and web development portfolio.">
+  <title>Eduardo Ferreira — Automation & Cloud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Eduardo Ferreira home">EF<span>.</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#background">Background</a>
+      <a class="nav-cta" href="mailto:hello@example.com">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> Based in Dublin, Ireland</p>
+        <h1>I turn repetitive work into <em>reliable systems.</em></h1>
+        <p class="lede">I’m Eduardo Ferreira, an automation and cloud-focused engineer building practical tools with scripts, AI, web technologies and AWS.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="portfolio.html">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="#services">View services</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Core disciplines">
+        <p class="panel-label">What I work across</p>
+        <ol>
+          <li><span>01</span><strong>Automation</strong><small>Workflows & scripting</small></li>
+          <li><span>02</span><strong>AI integration</strong><small>Agents & prompting</small></li>
+          <li><span>03</span><strong>Cloud systems</strong><small>AWS architecture</small></li>
+          <li><span>04</span><strong>Web & data</strong><small>Apps & analysis</small></li>
+        </ol>
+      </aside>
+    </section>
+
+    <section id="services" class="section shell">
+      <div class="section-heading">
+        <p class="eyebrow">Services</p>
+        <h2>From friction to a working solution.</h2>
+        <p>I combine operations experience with software thinking to simplify processes, connect tools and surface useful information.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card"><span class="service-number">01</span><h3>Automation & scripting</h3><p>Purpose-built scripts and workflows that remove repetitive tasks, reduce errors and give teams time back.</p><p class="tags">JavaScript · Python · VBA · APIs</p></article>
+        <article class="service-card"><span class="service-number">02</span><h3>AI workflow integration</h3><p>Useful AI systems built around real processes—from prompt design to agents, knowledge tools and automated actions.</p><p class="tags">LLMs · Bedrock · Agents · Prompting</p></article>
+        <article class="service-card"><span class="service-number">03</span><h3>Web development</h3><p>Responsive internal tools, dashboards and web experiences designed around how people actually work.</p><p class="tags">HTML/CSS · React · Next.js · Supabase</p></article>
+        <article class="service-card"><span class="service-number">04</span><h3>Cloud & data</h3><p>Serverless solutions and clear analysis using cloud services, structured data and practical visualisation.</p><p class="tags">AWS · Lambda · S3 · DynamoDB · SQL</p></article>
+      </div>
+    </section>
+
+    <section class="section work-preview">
+      <div class="shell">
+        <div class="section-heading split">
+          <div><p class="eyebrow">Selected work</p><h2>Tools built for real problems.</h2></div>
+          <a class="text-link" href="portfolio.html">View all projects →</a>
+        </div>
+        <div class="project-grid">
+          <a class="project-card project-featured" href="portfolio.html#shift-planner"><span class="project-type">Operations platform</span><h3>Shift Manager Planner</h3><p>A clearer way to coordinate staffing, coverage and daily priorities.</p><span class="project-arrow">↗</span></a>
+          <a class="project-card" href="portfolio.html#department-alerts"><span class="project-type">Automation</span><h3>Department Alerts</h3><p>Targeted notifications that help the right people act faster.</p><span class="project-arrow">↗</span></a>
+          <a class="project-card" href="portfolio.html#conference-hub"><span class="project-type">Web application</span><h3>Conference Hub</h3><p>A central experience for schedules, resources and updates.</p><span class="project-arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="background" class="section shell background-section">
+      <div class="section-heading"><p class="eyebrow">Background</p><h2>Engineering discipline, software mindset.</h2></div>
+      <div class="background-grid">
+        <div class="background-copy"><p>My foundation is engineering, with a focus on environmental, civil and industrial infrastructure. That background shaped how I approach technology: understand the system, find the constraint, then build something dependable.</p><p>Today, I apply that thinking to operational technology, automation, cloud services, web development and data.</p></div>
+        <div class="capability-list">
+          <div><span>Cloud</span><strong>AWS Lambda, S3, DynamoDB, API services, Bedrock</strong></div>
+          <div><span>Development</span><strong>JavaScript, Python, HTML/CSS, React, Next.js</strong></div>
+          <div><span>Data</span><strong>SQL, querying, dashboards, analysis and reporting</strong></div>
+          <div><span>Automation</span><strong>APIs, workflow design, scripting and AI agents</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="shell contact-inner"><p class="eyebrow">Have a process that should work better?</p><h2>Let’s build the smarter version.</h2><a class="button light" href="mailto:hello@example.com">Start a conversation <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell"><p>© <span id="year"></span> Eduardo Ferreira</p><p>Dublin, Ireland</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
