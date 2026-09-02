@@ -121,14 +121,178 @@
   const regionSelect = one("#region-select");
   if (regionSelect) {
     const regionCopy = {
-      ireland: ["8", "6", "1", "1"],
-      emea: ["21", "16", "3", "2"],
-      global: ["48", "36", "7", "5"]
+      north: { stats: ["2", "2", "1"], team: "Team Indigo", lead: "Sofia M.", support: "Maya K.", label: "North" },
+      west: { stats: ["3", "2", "2"], team: "Team Ember", lead: "Amara J.", support: "Leo B.", label: "West" },
+      global: { stats: ["6", "6", "3"], team: "All sample teams", lead: "Regional view", support: "Shared coverage", label: "All hubs" }
     };
     regionSelect.addEventListener("change", () => {
-      const values = regionCopy[regionSelect.value];
-      all("[data-region-stat]").forEach((stat, index) => { stat.textContent = values[index]; });
+      const view = regionCopy[regionSelect.value];
+      all("[data-region-stat]").forEach((stat, index) => { stat.textContent = view.stats[index]; });
+      if (one("[data-active-team]")) one("[data-active-team]").textContent = view.team;
+      if (one("[data-active-lead]")) one("[data-active-lead]").textContent = view.lead;
+      if (one("[data-active-support]")) one("[data-active-support]").textContent = view.support;
+      all(".schedule-column h4 span").forEach((label) => { label.textContent = view.label; });
       showToast(`View updated with synthetic ${regionSelect.options[regionSelect.selectedIndex].text} coverage data.`);
+    });
+  }
+
+  const countdown = one("[data-shift-countdown]");
+  if (countdown) {
+    let seconds = (2 * 60 * 60) + (18 * 60) + 42;
+    window.setInterval(() => {
+      seconds = seconds > 0 ? seconds - 1 : (8 * 60 * 60);
+      const hours = String(Math.floor(seconds / 3600)).padStart(2, "0");
+      const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
+      const remainder = String(seconds % 60).padStart(2, "0");
+      countdown.textContent = `${hours}:${minutes}:${remainder}`;
+    }, 1000);
+  }
+
+  const rotaBody = one("#rota-body");
+  if (rotaBody) {
+    const people = ["Maya K.", "Sofia M.", "Daniel R.", "Noah T."];
+    const times = ["07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00"];
+    times.forEach((time) => {
+      const row = document.createElement("tr");
+      const timeCell = document.createElement("th");
+      timeCell.scope = "row";
+      timeCell.textContent = time;
+      row.append(timeCell);
+      for (let index = 0; index < 6; index += 1) {
+        const cell = document.createElement("td");
+        const select = document.createElement("select");
+        select.className = "shift-slot";
+        select.setAttribute("aria-label", `${time} assignment slot ${index + 1}`);
+        ["—", ...people].forEach((name) => {
+          const option = document.createElement("option");
+          option.textContent = name;
+          select.append(option);
+        });
+        select.addEventListener("change", () => select.classList.toggle("filled", select.value !== "—"));
+        cell.append(select);
+        row.append(cell);
+      }
+      rotaBody.append(row);
+    });
+
+    all("[data-planner-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const slots = all(".shift-slot");
+        if (button.dataset.plannerAction === "populate") {
+          slots.forEach((slot, index) => {
+            const column = index % 6;
+            slot.value = column === 2 || column === 5 ? "—" : people[(index + Math.floor(index / 6)) % people.length];
+            slot.classList.toggle("filled", slot.value !== "—");
+          });
+          showToast("The fictional rota was auto-populated using sample availability.");
+        }
+        if (button.dataset.plannerAction === "clear" || button.dataset.plannerAction === "reset") {
+          slots.forEach((slot) => { slot.value = "—"; slot.classList.remove("filled"); });
+          if (button.dataset.plannerAction === "reset") {
+            all("#shift-team, #shift-lead, #support-lead, #extra-member").forEach((select) => { select.selectedIndex = 0; });
+          }
+          showToast(button.dataset.plannerAction === "reset" ? "All sample shift inputs were reset." : "The sample rota was cleared.");
+        }
+      });
+    });
+  }
+
+  const extraMember = one("#extra-member");
+  if (extraMember) {
+    extraMember.addEventListener("change", () => {
+      if (extraMember.selectedIndex === 0) return;
+      showToast(`${extraMember.value} was added to the fictional team.`);
+    });
+  }
+
+  const addSampleActivity = one("#add-sample-activity");
+  if (addSampleActivity) {
+    addSampleActivity.addEventListener("click", () => {
+      const slot = one("[data-live-activity-slot]");
+      const person = one("#activity-person").value;
+      const type = one("#activity-type").value;
+      const start = one("#activity-start").value;
+      const end = one("#activity-end").value;
+      if (!slot) return;
+      slot.classList.remove("empty");
+      const label = document.createElement("span");
+      label.textContent = "Projects";
+      const items = document.createElement("div");
+      const activity = document.createElement("span");
+      activity.className = "activity-chip orange";
+      activity.textContent = `${person} · ${type} · ${start}–${end}`;
+      items.append(activity);
+      slot.replaceChildren(label, items);
+    });
+  }
+
+  const readinessSearch = one("#readiness-search");
+  if (readinessSearch) {
+    readinessSearch.addEventListener("input", () => {
+      const term = readinessSearch.value.trim().toLowerCase();
+      all("[data-readiness-row]").forEach((row) => { row.hidden = !row.textContent.toLowerCase().includes(term); });
+    });
+  }
+
+  all("[data-report-filter]").forEach((button) => {
+    button.addEventListener("click", () => {
+      all("[data-report-filter]").forEach((item) => item.classList.toggle("active", item === button));
+      const filter = button.dataset.reportFilter;
+      let visible = 0;
+      all("[data-report-region]").forEach((row) => {
+        row.hidden = filter !== "all" && row.dataset.reportRegion !== filter;
+        if (!row.hidden) visible += 1;
+      });
+      if (one("[data-report-count]")) one("[data-report-count]").textContent = String(visible);
+    });
+  });
+
+  const adminForm = one("#admin-form");
+  if (adminForm) {
+    adminForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const alias = one("#admin-alias").value.trim();
+      const hubs = all("input[name='hub']:checked", adminForm).map((input) => input.value);
+      if (!alias || hubs.length === 0) {
+        showToast("Add a fictional alias and select at least one sample hub.");
+        return;
+      }
+      const row = document.createElement("tr");
+      const values = [alias, "", `${Math.min(6, hubs.length + 2)} pages`, "portfolio.demo", "New sample", ""];
+      values.forEach((value, index) => {
+        const cell = document.createElement("td");
+        if (index === 0) {
+          const strong = document.createElement("strong");
+          strong.textContent = value;
+          cell.append(strong);
+        } else if (index === 1) {
+          hubs.forEach((hub) => {
+            const tag = document.createElement("span");
+            tag.className = "tag";
+            tag.textContent = hub;
+            cell.append(tag);
+          });
+        } else if (index === 5) {
+          const edit = document.createElement("button");
+          edit.type = "button";
+          edit.className = "mini-action";
+          edit.textContent = "Edit";
+          edit.addEventListener("click", () => showToast("Editing is simulated in this portfolio preview."));
+          const revoke = document.createElement("button");
+          revoke.type = "button";
+          revoke.className = "mini-action danger";
+          revoke.textContent = "Revoke";
+          revoke.addEventListener("click", () => showToast("Access removal is simulated; no account was changed."));
+          cell.append(edit, revoke);
+        } else {
+          cell.textContent = value;
+        }
+        row.append(cell);
+      });
+      one("#admin-table-body").prepend(row);
+      adminForm.reset();
+      one("input[name='hub']", adminForm).checked = true;
+      showToast("A fictional administrator was added to this local preview.");
     });
   }
 
