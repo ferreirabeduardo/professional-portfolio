@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Selected automation, AI, cloud and web projects by Eduardo Ferreira.">
+  <title>Portfolio — Eduardo Ferreira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Eduardo Ferreira home">EF<span>.</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a><a class="active" href="portfolio.html">Portfolio</a><a href="index.html#services">Services</a><a href="index.html#background">Background</a><a class="nav-cta" href="mailto:hello@example.com">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero shell"><p class="eyebrow">Portfolio</p><h1>Systems, tools and experiments that make work flow.</h1><p>Selected projects across operations, automation, AI and web development. Detailed case studies and live demonstrations will be added as each project is prepared for public viewing.</p></section>
+
+    <section class="portfolio-list shell" aria-label="Projects">
+      <article id="shift-planner" class="case-study">
+        <div class="case-index">01</div><div class="case-content"><p class="project-type">Operations · Planning</p><h2>Shift Manager Planner</h2><p>A planning workspace designed to make staffing, coverage and day-to-day coordination easier to understand. It brings key shift information into one focused view and reduces the effort required to keep plans current.</p><div class="case-meta"><div><span>Focus</span><strong>Workflow design, scheduling, clarity</strong></div><div><span>Outcome</span><strong>Faster planning and easier handovers</strong></div></div></div>
+      </article>
+      <article id="department-alerts" class="case-study">
+        <div class="case-index">02</div><div class="case-content"><p class="project-type">Automation · Communication</p><h2>Department Alerts</h2><p>A targeted notification workflow that routes relevant updates to the correct teams. The project focuses on reducing noise while helping urgent information reach the people who can act on it.</p><div class="case-meta"><div><span>Focus</span><strong>Rules, routing and notifications</strong></div><div><span>Outcome</span><strong>Quicker awareness with less noise</strong></div></div></div>
+      </article>
+      <article id="conference-hub" class="case-study">
+        <div class="case-index">03</div><div class="case-content"><p class="project-type">Web development · Information</p><h2>Conference Hub</h2><p>A central web experience for event schedules, resources and announcements. The interface is structured to help participants find what matters without searching across disconnected channels.</p><div class="case-meta"><div><span>Focus</span><strong>Information architecture and responsive UI</strong></div><div><span>Outcome</span><strong>One reliable source for attendees</strong></div></div></div>
+      </article>
+      <article id="automation-scripts" class="case-study">
+        <div class="case-index">04</div><div class="case-content"><p class="project-type">Scripting · Operations</p><h2>Automation Scripts</h2><p>A growing collection of lightweight tools that extract, transform and validate operational information. Each script starts with a repeated manual task and turns it into a faster, more consistent workflow.</p><div class="case-meta"><div><span>Toolkit</span><strong>JavaScript, Python, VBA and APIs</strong></div><div><span>Examples</span><strong>Data extraction, calendar export, validation</strong></div></div></div>
+      </article>
+      <article id="ai-projects" class="case-study">
+        <div class="case-index">05</div><div class="case-content"><p class="project-type">AI · Integration</p><h2>AI Projects</h2><p>Experiments and production-minded concepts that connect language models to useful workflows. The work covers prompt design, knowledge retrieval, agent behaviour and responsible automation.</p><div class="case-meta"><div><span>Toolkit</span><strong>Amazon Bedrock, LLMs, agents and APIs</strong></div><div><span>Focus</span><strong>Useful, controlled and explainable AI</strong></div></div></div>
+      </article>
+    </section>
+
+    <section class="contact-section"><div class="shell contact-inner"><p class="eyebrow">Interested in the work?</p><h2>Let’s talk about the problem you’re solving.</h2><a class="button light" href="mailto:hello@example.com">Get in touch <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+  <footer class="site-footer shell"><p>© <span id="year"></span> Eduardo Ferreira</p><p>Dublin, Ireland</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
