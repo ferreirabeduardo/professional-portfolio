@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="mockups.css">
+  <link rel="stylesheet" href="mockups.css?v=20260902-3">
 </head>
 <body data-demo="planned-work-automation">
   <header class="demo-topbar demo-shell">
@@ -44,11 +44,12 @@
               <div class="panel-head"><div><h3>Sample planned-work request</h3><p>All content below was invented for this portfolio demo.</p></div><button class="feature-info" type="button" aria-label="About request intake" data-detail="feature-intake">i</button></div>
               <div class="request-grid">
                 <div class="field"><label for="request-ref">Request reference</label><input id="request-ref" value="DEMO-PW-2048"></div>
-                <div class="field"><label for="request-category">System category</label><select id="request-category"><option>Cooling support</option><option>Power distribution</option><option>Network infrastructure</option></select></div>
+                <div class="field"><label for="request-category">System category</label><select id="request-category"><option value="cooling">Cooling</option><option value="power">Power</option><option value="network">Network</option></select></div>
                 <div class="field"><label for="request-date">Planned date</label><input id="request-date" type="date" value="2026-09-18"></div>
-                <div class="field"><label for="request-region">General area</label><select id="request-region"><option>Sample facility group A</option><option>Sample facility group B</option></select></div>
+                <div class="field"><label for="equipment-system">Equipment / system</label><select id="equipment-system"><option value="ahu">AHU</option><option value="crahu">CRAHU</option><option value="air_conditioning_system">Air conditioning system</option><option value="cooling_pump">Cooling pump</option><option value="heat_exchanger">Heat exchanger</option></select></div>
+                <div class="field wide"><label for="area-identifier">Area identifier</label><input id="area-identifier" value="Room 2, area 3.3" placeholder="e.g. Room 2, area 3.3"></div>
                 <div class="field wide"><label for="request-summary">Work summary</label><textarea id="request-summary">Routine maintenance on a redundant cooling component during an approved change window. Service continuity is expected to remain available.</textarea></div>
-                <div class="field wide"><label for="engineer-notes">Engineer notes</label><textarea id="engineer-notes">Confirm the request reference and timing before preparing downstream records. Route any ambiguity for human review.</textarea></div>
+                <div class="field wide"><label for="engineer-notes">Engineer notes</label><textarea id="engineer-notes">Room 2, area 3.3. Lineup 1B, utility 1B.</textarea></div>
               </div>
               <div class="form-actions"><button id="run-analysis" class="solid-button" type="button">Run sample analysis</button></div>
             </section>
@@ -63,20 +64,21 @@
         </section>
 
         <section id="ai-review" class="tab-panel" role="tabpanel" hidden>
-          <div class="stats-grid"><div class="stat-card"><span>Fields reviewed</span><strong>6</strong><small>Sample inputs</small></div><div class="stat-card"><span>Checks passed</span><strong>5</strong><small>Generic validation</small></div><div class="stat-card"><span>Review flags</span><strong>1</strong><small>Human confirmation</small></div><div class="stat-card"><span>Confidence</span><strong>High</strong><small>Illustrative label</small></div></div>
+          <div class="stats-grid"><div class="stat-card"><span>Fields reviewed</span><strong>7</strong><small>Sample inputs</small></div><div class="stat-card"><span>Checks passed</span><strong>6</strong><small>Generic validation</small></div><div class="stat-card"><span>Review flags</span><strong>1</strong><small>Human confirmation</small></div><div class="stat-card"><span>Confidence</span><strong>High</strong><small>Illustrative label</small></div></div>
           <div class="dashboard-grid">
             <section class="panel">
               <div class="panel-head"><div><h3>Analysis result</h3><p>Generic reasoning summary—not an operational decision.</p></div><button class="feature-info" type="button" aria-label="About AI-assisted review" data-detail="feature-ai-review">i</button></div>
               <div class="check-list">
-                <div class="check-item"><span class="check-mark">✓</span><span><strong>Required context is present</strong><small>Reference, category, date and summary were identified.</small></span></div>
+                <div class="check-item"><span class="check-mark">✓</span><span><strong>Required context is present</strong><small>Reference, category, equipment, area, date and summary were identified.</small></span></div>
                 <div class="check-item"><span class="check-mark">✓</span><span><strong>Information is internally consistent</strong><small>The synthetic timing and description do not conflict.</small></span></div>
-                <div class="check-item"><span class="check-mark">✓</span><span><strong>Downstream format can be prepared</strong><small>Fields can be mapped into a generic structured payload.</small></span></div>
-                <div class="check-item"><span class="check-mark" style="background:var(--amber-soft);color:var(--amber)">!</span><span><strong>Human confirmation requested</strong><small>Reviewer should confirm the general area before submission.</small></span></div>
+                <div class="check-item"><span class="check-mark">✓</span><span><strong>Engineer notes reviewed</strong><small>Location and lineup context were extracted from the sample notes.</small></span></div>
+                <div class="check-item"><span class="check-mark">✓</span><span><strong>Downstream format can be prepared</strong><small>All fields can be mapped into a generic API payload.</small></span></div>
+                <div class="check-item"><span class="check-mark" style="background:var(--amber-soft);color:var(--amber)">!</span><span><strong>Human confirmation requested</strong><small>Reviewer should confirm the area identifier and equipment before submission.</small></span></div>
               </div>
               <div class="form-actions"><button id="build-output" class="solid-button" type="button">Confirm & build output</button></div>
             </section>
             <aside>
-              <section class="panel"><div class="panel-head"><div><h3>Extracted summary</h3><p>Portfolio-safe example</p></div></div><p class="muted" style="font-size:.8rem">Routine maintenance is planned for a redundant cooling component. The request includes a date, broad location, reference and instruction to route ambiguity for human review.</p></section>
+              <section class="panel"><div class="panel-head"><div><h3>Extracted summary</h3><p>Portfolio-safe example</p></div></div><p class="muted" style="font-size:.8rem">Routine maintenance is planned for a redundant cooling component. The request identifies <strong id="review-equipment">AHU</strong> in <strong id="review-area">Room 2, area 3.3</strong>, with engineer notes retained for human validation.</p></section>
               <section class="panel"><div class="panel-head"><div><h3>Control points</h3><p>Responsible automation</p></div></div><div class="check-list"><div class="check-item"><span class="check-mark">✓</span><span><strong>Source-grounded</strong><small>Uses provided request content</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Schema validation</strong><small>Predictable field structure</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Human approval</strong><small>Submission remains controlled</small></span></div></div></section>
             </aside>
           </div>
@@ -86,25 +88,25 @@
           <div class="dashboard-grid">
             <section class="panel">
               <div class="panel-head"><div><h3>Validated demonstration payload</h3><p>Generic field names and invented values only.</p></div><button class="feature-info" type="button" aria-label="About structured output" data-detail="feature-output">i</button></div>
-              <div class="code-card" aria-label="Synthetic structured output"><span class="note">{</span><br>&nbsp;&nbsp;<span class="key">"requestRef"</span>: <span class="value">"DEMO-PW-2048"</span>,<br>&nbsp;&nbsp;<span class="key">"systemCategory"</span>: <span class="value">"cooling_support"</span>,<br>&nbsp;&nbsp;<span class="key">"plannedDate"</span>: <span class="value">"2026-09-18"</span>,<br>&nbsp;&nbsp;<span class="key">"area"</span>: <span class="value">"sample_group_a"</span>,<br>&nbsp;&nbsp;<span class="key">"reviewOutcome"</span>: <span class="value">"human_confirmed"</span>,<br>&nbsp;&nbsp;<span class="key">"routingClass"</span>: <span class="value">"demonstration_only"</span><br><span class="note">}</span></div>
+              <div class="code-card" aria-label="Synthetic structured output"><span class="note">{</span><br>&nbsp;&nbsp;<span class="key">"requestRef"</span>: <span class="value" id="output-reference">"DEMO-PW-2048"</span>,<br>&nbsp;&nbsp;<span class="key">"systemCategory"</span>: <span class="value" id="output-category">"cooling"</span>,<br>&nbsp;&nbsp;<span class="key">"equipmentSystem"</span>: <span class="value" id="output-equipment">"ahu"</span>,<br>&nbsp;&nbsp;<span class="key">"areaIdentifier"</span>: <span class="value" id="output-area">"Room 2, area 3.3"</span>,<br>&nbsp;&nbsp;<span class="key">"plannedDate"</span>: <span class="value" id="output-date">"2026-09-18"</span>,<br>&nbsp;&nbsp;<span class="key">"reviewOutcome"</span>: <span class="value">"human_confirmed"</span>,<br>&nbsp;&nbsp;<span class="key">"routingClass"</span>: <span class="value">"demonstration_only"</span><br><span class="note">}</span></div>
               <div class="form-actions"><button class="outline-button" type="button" data-demo-action="Synthetic payload copied for demonstration.">Copy sample</button><button id="submit-sample" class="solid-button" type="button">Submit demo</button></div>
             </section>
             <aside>
-              <section class="panel"><div class="panel-head"><div><h3>Validation</h3><p>Ready for demonstration</p></div></div><div class="check-list"><div class="check-item"><span class="check-mark">✓</span><span><strong>Expected fields</strong><small>All generic keys are present</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Allowed values</strong><small>Sample types passed validation</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Reviewer state</strong><small>Human confirmation recorded</small></span></div></div></section>
+              <section class="panel"><div class="panel-head"><div><h3>API submission preview</h3><p>Ready for demonstration</p></div></div><div class="check-list"><div class="check-item"><span class="check-mark">✓</span><span><strong>Expected fields</strong><small>All generic keys are present</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Area and equipment</strong><small>Both are included in the demo API payload</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Reviewer state</strong><small>Human confirmation recorded</small></span></div></div></section>
               <section class="panel"><div class="panel-head"><div><h3>Next stage</h3><p>Controlled handoff</p></div></div><p class="muted" style="font-size:.8rem">In the original product pattern, the validated structure was consumed by a script and an API-based work-management workflow. This preview makes no external connection.</p></section>
             </aside>
           </div>
         </section>
 
         <section id="submission-log" class="tab-panel" role="tabpanel" hidden>
-          <div class="stats-grid"><div class="stat-card"><span>Processed today</span><strong>18</strong><small>Synthetic total</small></div><div class="stat-card"><span>Validated</span><strong>16</strong><small>Sample records</small></div><div class="stat-card"><span>Needs review</span><strong>2</strong><small>Human queue</small></div><div class="stat-card"><span>Failed</span><strong>0</strong><small>Demonstration state</small></div></div>
+          <div class="stats-grid"><div class="stat-card"><span>Processed today</span><strong>18</strong><small>Synthetic total</small></div><div class="stat-card"><span>In progress</span><strong>15</strong><small>Sample records</small></div><div class="stat-card"><span>Awaiting review</span><strong>2</strong><small>Human queue</small></div><div class="stat-card"><span>Rejected</span><strong>1</strong><small>Sample record</small></div></div>
           <section class="panel">
             <div class="panel-head"><div><h3>Automation activity</h3><p>Traceable outcomes help with support, troubleshooting and continuous improvement.</p></div><button class="feature-info" type="button" aria-label="About submission tracking" data-detail="feature-log">i</button></div>
-            <div class="table-wrap"><table class="data-table"><thead><tr><th>Reference</th><th>Category</th><th>Review</th><th>Destination</th><th>Time</th><th>Outcome</th></tr></thead><tbody>
-              <tr id="new-log-row" hidden><td><strong>DEMO-PW-2048</strong></td><td>Cooling support</td><td>Human confirmed</td><td>Demo endpoint</td><td>Just now</td><td><span class="status complete">Recorded</span></td></tr>
-              <tr><td><strong>DEMO-PW-2042</strong></td><td>Power distribution</td><td>Validated</td><td>Demo endpoint</td><td>10:22</td><td><span class="status complete">Recorded</span></td></tr>
-              <tr><td><strong>DEMO-PW-2039</strong></td><td>Network infrastructure</td><td>Manual review</td><td>Review queue</td><td>09:48</td><td><span class="status pending">Review</span></td></tr>
-              <tr><td><strong>DEMO-PW-2036</strong></td><td>Cooling support</td><td>Validated</td><td>Demo endpoint</td><td>09:17</td><td><span class="status complete">Recorded</span></td></tr>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Reference</th><th>Category</th><th>Equipment / system</th><th>Area identifier</th><th>Review</th><th>Destination</th><th>Time</th><th>Status</th></tr></thead><tbody>
+              <tr id="new-log-row" hidden><td><strong id="log-reference">DEMO-PW-2048</strong></td><td id="log-category">Cooling</td><td id="log-equipment">AHU</td><td id="log-area">Room 2, area 3.3</td><td>Human confirmed</td><td>Demo endpoint</td><td>Just now</td><td><span class="status complete">In progress</span></td></tr>
+              <tr><td><strong>DEMO-PW-2042</strong></td><td>Power</td><td>UPS</td><td>Lineup 1B</td><td>Validated</td><td>Demo endpoint</td><td>10:22</td><td><span class="status complete">In progress</span></td></tr>
+              <tr><td><strong>DEMO-PW-2039</strong></td><td>Network</td><td>Network rack</td><td>Room 4, row C</td><td>Manual review</td><td>Review queue</td><td>09:48</td><td><span class="status pending">Awaiting review</span></td></tr>
+              <tr><td><strong>DEMO-PW-2036</strong></td><td>Cooling</td><td>CRAHU</td><td>Room 1, area 2.1</td><td>Review rejected</td><td>Review queue</td><td>09:17</td><td><span class="status urgent">Rejected</span></td></tr>
             </tbody></table></div>
           </section>
         </section>
@@ -132,6 +134,6 @@
   <template id="feature-log" data-title="Traceability and support"><p>Processing outcomes can be recorded so unusual cases are easier to investigate. This also supports post-launch ownership: reviewing issues, pulling appropriate logs, fixing defects and improving the workflow over time.</p></template>
 
   <div id="demo-toast" class="demo-toast" role="status" aria-live="polite"></div>
-  <script src="mockups.js"></script>
+  <script src="mockups.js?v=20260902-3"></script>
 </body>
 </html>
