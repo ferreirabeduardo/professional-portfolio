@@ -430,4 +430,76 @@
       showToast("Synthetic event status updated and a notification preview was prepared.");
     });
   }
+
+  const riskAlerts = {
+    "weather-ca": { severity: "Extreme", severityClass: "extreme", title: "Blizzard conditions", area: "Canada · Northern regions", issued: "02 Sep · 14:10 UTC", expires: "03 Sep · 06:00 UTC", type: "Weather alert" },
+    "weather-ie": { severity: "Severe", severityClass: "severe", title: "Wind and coastal flooding", area: "Ireland · Western counties", issued: "02 Sep · 15:25 UTC", expires: "03 Sep · 02:00 UTC", type: "Weather alert" },
+    "crisis-fr": { severity: "Severe", severityClass: "severe", title: "Road-access disruption", area: "France · Central urban districts", issued: "02 Sep · 16:40 UTC", expires: "Review at 20:00 UTC", type: "Crisis alert" },
+    "weather-br": { severity: "Severe", severityClass: "severe", title: "Heavy rainfall", area: "Brazil · Coastal states", issued: "02 Sep · 13:50 UTC", expires: "02 Sep · 23:45 UTC", type: "Weather alert" },
+    "weather-jp": { severity: "Extreme", severityClass: "extreme", title: "Tropical storm", area: "Japan · Southern prefectures", issued: "02 Sep · 12:20 UTC", expires: "03 Sep · 11:30 UTC", type: "Weather alert" },
+    "crisis-za": { severity: "Extreme", severityClass: "extreme", title: "Regional transport blockade", area: "South Africa · Selected metropolitan corridors", issued: "02 Sep · 17:05 UTC", expires: "Review at 04:00 UTC", type: "Crisis alert" }
+  };
+
+  all("[data-alert-id]").forEach((marker) => {
+    marker.addEventListener("click", () => {
+      const alert = riskAlerts[marker.dataset.alertId];
+      const card = one("#map-alert-card");
+      if (!alert || !card) return;
+      card.hidden = false;
+      one("#map-alert-severity").textContent = alert.severity;
+      one("#map-alert-severity").className = `severity-badge ${alert.severityClass}`;
+      one("#map-alert-title").textContent = alert.title;
+      one("#map-alert-area").textContent = alert.area;
+      one("#map-alert-issued").textContent = alert.issued;
+      one("#map-alert-expires").textContent = alert.expires;
+      one("#map-alert-type").textContent = alert.type;
+      all("[data-alert-id]").forEach((item) => item.removeAttribute("aria-current"));
+      marker.setAttribute("aria-current", "true");
+    });
+  });
+
+  const closeMapAlert = one("#close-map-alert");
+  if (closeMapAlert) {
+    closeMapAlert.addEventListener("click", () => {
+      const card = one("#map-alert-card");
+      if (card) card.hidden = true;
+      all("[data-alert-id]").forEach((marker) => marker.removeAttribute("aria-current"));
+    });
+  }
+
+  function selectAlertTab(tab, moveFocus) {
+    all("[data-alert-tab]").forEach((item) => {
+      const active = item === tab;
+      item.classList.toggle("active", active);
+      item.setAttribute("aria-selected", String(active));
+      item.tabIndex = active ? 0 : -1;
+    });
+    all(".alert-table-panel").forEach((panel) => {
+      panel.hidden = panel.id !== tab.dataset.alertTab;
+    });
+    if (moveFocus) tab.focus();
+  }
+
+  all("[data-alert-tab]").forEach((tab) => {
+    tab.addEventListener("click", () => selectAlertTab(tab, false));
+    tab.addEventListener("keydown", (event) => {
+      if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+      const tabs = all("[data-alert-tab]");
+      let next = tabs.indexOf(tab);
+      if (event.key === "ArrowRight") next = (next + 1) % tabs.length;
+      if (event.key === "ArrowLeft") next = (next - 1 + tabs.length) % tabs.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = tabs.length - 1;
+      event.preventDefault();
+      selectAlertTab(tabs[next], true);
+    });
+  });
+
+  const refreshAlerts = one("#refresh-alerts");
+  if (refreshAlerts) {
+    refreshAlerts.addEventListener("click", () => {
+      one("#risk-update-time").textContent = "Updated moments ago";
+      showToast("Fictional weather and crisis alert data refreshed.");
+    });
+  }
 })();
