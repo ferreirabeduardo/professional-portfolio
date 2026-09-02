@@ -296,9 +296,94 @@
     });
   }
 
+  const plannedWorkCategory = one("#request-category");
+  const equipmentSystem = one("#equipment-system");
+  const plannedWorkEquipment = {
+    cooling: [
+      ["ahu", "AHU"],
+      ["crahu", "CRAHU"],
+      ["air_conditioning_system", "Air conditioning system"],
+      ["cooling_pump", "Cooling pump"],
+      ["heat_exchanger", "Heat exchanger"]
+    ],
+    power: [
+      ["generator", "Generator"],
+      ["ups", "UPS"],
+      ["power_distribution_unit", "Power distribution unit"],
+      ["transformer", "Transformer"],
+      ["switchgear", "Switchgear"]
+    ],
+    network: [
+      ["network_rack", "Network rack"],
+      ["core_switch", "Core switch"],
+      ["router", "Router"],
+      ["patch_panel", "Patch panel"],
+      ["fibre_distribution_panel", "Fibre distribution panel"]
+    ]
+  };
+
+  function selectedLabel(select) {
+    return select && select.selectedIndex >= 0 ? select.options[select.selectedIndex].text : "";
+  }
+
+  function jsonDisplay(value) {
+    return JSON.stringify(value || "");
+  }
+
+  function syncPlannedWorkOutput() {
+    if (!plannedWorkCategory || !equipmentSystem) return;
+    const reference = one("#request-ref").value.trim();
+    const area = one("#area-identifier").value.trim();
+    const plannedDate = one("#request-date").value;
+    const equipmentLabel = selectedLabel(equipmentSystem);
+    const categoryLabel = selectedLabel(plannedWorkCategory);
+
+    const outputValues = {
+      "#output-reference": reference,
+      "#output-category": plannedWorkCategory.value,
+      "#output-equipment": equipmentSystem.value,
+      "#output-area": area,
+      "#output-date": plannedDate
+    };
+    Object.entries(outputValues).forEach(([selector, value]) => {
+      const target = one(selector);
+      if (target) target.textContent = jsonDisplay(value);
+    });
+
+    const textValues = {
+      "#review-equipment": equipmentLabel,
+      "#review-area": area,
+      "#log-reference": reference,
+      "#log-category": categoryLabel,
+      "#log-equipment": equipmentLabel,
+      "#log-area": area
+    };
+    Object.entries(textValues).forEach(([selector, value]) => {
+      const target = one(selector);
+      if (target) target.textContent = value;
+    });
+  }
+
+  if (plannedWorkCategory && equipmentSystem) {
+    plannedWorkCategory.addEventListener("change", () => {
+      equipmentSystem.replaceChildren();
+      plannedWorkEquipment[plannedWorkCategory.value].forEach(([value, label]) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = label;
+        equipmentSystem.append(option);
+      });
+      syncPlannedWorkOutput();
+    });
+    equipmentSystem.addEventListener("change", syncPlannedWorkOutput);
+    all("#request-ref, #request-date, #area-identifier").forEach((input) => input.addEventListener("input", syncPlannedWorkOutput));
+    syncPlannedWorkOutput();
+  }
+
   const runAnalysis = one("#run-analysis");
   if (runAnalysis) {
     runAnalysis.addEventListener("click", () => {
+      syncPlannedWorkOutput();
       runAnalysis.disabled = true;
       runAnalysis.textContent = "Analysing sample…";
       window.setTimeout(() => {
@@ -314,6 +399,7 @@
   const buildOutput = one("#build-output");
   if (buildOutput) {
     buildOutput.addEventListener("click", () => {
+      syncPlannedWorkOutput();
       selectTab("structured-output", false);
       showToast("A demonstration payload was generated from synthetic inputs.");
     });
@@ -322,10 +408,11 @@
   const submitSample = one("#submit-sample");
   if (submitSample) {
     submitSample.addEventListener("click", () => {
+      syncPlannedWorkOutput();
       const newRow = one("#new-log-row");
       if (newRow) newRow.hidden = false;
       selectTab("submission-log", false);
-      showToast("Demo submission recorded locally. No API call was made.");
+      showToast("Demo API submission recorded with area and equipment fields. No external request was sent.");
     });
   }
 
