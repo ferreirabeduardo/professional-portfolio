@@ -13,7 +13,7 @@ Open `index.html` in a browser, or serve the folder with any static web server.
 
 ## Before publishing
 
-Replace `hello@example.com` with the preferred contact email and expand each project with approved screenshots, links and measurable outcomes.
+Review every project for NDA-safe wording, then add only approved screenshots, links and measurable outcomes.
 
 ## Deployment
 
