@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NDA-safe interactive reconstruction of a multi-region shift planning platform by Eduardo Ferreira.">
+  <title>Shift Planner Demo — Eduardo Ferreira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mockups.css">
+</head>
+<body data-demo="shift-planner">
+  <header class="demo-topbar demo-shell">
+    <a class="demo-brand" href="../index.html" aria-label="Eduardo Ferreira home">
+      <span class="demo-mark">EF</span>
+      <div>Project preview<small>Interactive portfolio demonstration</small></div>
+    </a>
+    <div class="topbar-actions">
+      <button class="outline-button" type="button" data-open-dialog="build-dialog">What I built</button>
+      <a class="back-link" href="../portfolio.html#shift-planner">← Portfolio</a>
+    </div>
+  </header>
+
+  <div class="demo-shell">
+    <p class="nda-banner"><span class="nda-dot" aria-hidden="true"></span><strong>Safe reconstruction:</strong> This interactive concept uses fictional people and synthetic data. It does not reproduce an employer interface, identifiers, data or operating procedures.</p>
+
+    <div class="app-frame">
+      <aside class="sidebar">
+        <div class="product-name"><span>Operations demo</span><h1>Coverage Planner</h1></div>
+        <p class="side-label">Workspace</p>
+        <nav class="tab-list" role="tablist" aria-label="Shift planner features">
+          <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="live-coverage" data-tab-target="live-coverage" data-page-title="Live coverage" data-page-summary="A shared view of current availability and cross-region operational coverage."><span class="tab-icon">◉</span>Live coverage</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="shift-management" data-tab-target="shift-management" data-page-title="Shift management" data-page-summary="Coordinate schedules, call-outs, task rotations and time-away requests."><span class="tab-icon">◫</span>Shift management</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="readiness" data-tab-target="readiness" data-page-title="Team readiness" data-page-summary="Maintain flexible capability, certification and responsibility profiles."><span class="tab-icon">◇</span>Readiness</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="audits" data-tab-target="audits" data-page-title="Audits & reports" data-page-summary="Review schedule changes, coverage patterns and completed approvals."><span class="tab-icon">▥</span>Audits & reports</button>
+        </nav>
+        <div class="sidebar-foot"><strong>Follow-the-sun concept</strong>Designed for clearer coordination across regional shift structures and handovers.</div>
+      </aside>
+
+      <main class="app-main">
+        <header class="app-heading">
+          <div><p class="kicker">Multi-region operations</p><h2 id="view-title">Live coverage</h2><p id="view-summary">A shared view of current availability and cross-region operational coverage.</p></div>
+          <div class="heading-tools">
+            <select id="region-select" class="select-control" aria-label="Select coverage region"><option value="ireland">Ireland</option><option value="emea">EMEA view</option><option value="global">Global view</option></select>
+            <button class="solid-button" type="button" data-open-dialog="schedule-dialog">+ Add activity</button>
+          </div>
+        </header>
+
+        <section id="live-coverage" class="tab-panel" role="tabpanel">
+          <div class="stats-grid">
+            <div class="stat-card"><span>Scheduled today</span><strong data-region-stat>8</strong><small>Sample coverage</small></div>
+            <div class="stat-card"><span>In operations</span><strong data-region-stat>6</strong><small>Live synthetic state</small></div>
+            <div class="stat-card"><span>Planned activities</span><strong data-region-stat>1</strong><small>Visible to leads</small></div>
+            <div class="stat-card"><span>Time away</span><strong data-region-stat>1</strong><small>Approved request</small></div>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="panel">
+              <div class="panel-head"><div><h3>Current team status</h3><p>Select a person to view the demonstration detail.</p></div><button class="feature-info" type="button" aria-label="About live status" data-detail="feature-live-status">i</button></div>
+              <div class="people-grid">
+                <button class="person-card" type="button" data-detail="person-maya"><span class="person-top"><span class="avatar">MK</span><span><strong>Maya K.</strong><small>Operations engineer</small></span></span><span class="status live">In operations</span></button>
+                <button class="person-card" type="button" data-detail="person-daniel"><span class="person-top"><span class="avatar">DR</span><span><strong>Daniel R.</strong><small>Operations engineer</small></span></span><span class="status project">Project work</span></button>
+                <button class="person-card" type="button" data-detail="person-sofia"><span class="person-top"><span class="avatar">SM</span><span><strong>Sofia M.</strong><small>Shift lead</small></span></span><span class="status live">In operations</span></button>
+                <button class="person-card" type="button" data-detail="person-liam"><span class="person-top"><span class="avatar">LP</span><span><strong>Liam P.</strong><small>Operations engineer</small></span></span><span class="status break">Break · back 14:30</span></button>
+              </div>
+            </section>
+
+            <aside>
+              <section class="panel">
+                <div class="panel-head"><div><h3>Coverage by period</h3><p>Illustrative staffing view</p></div><button class="feature-info" type="button" aria-label="About coverage indicators" data-detail="feature-coverage">i</button></div>
+                <div class="coverage-list">
+                  <div class="coverage-item"><span>Morning</span><div class="coverage-track"><i style="width:88%"></i></div><strong>88%</strong></div>
+                  <div class="coverage-item"><span>Afternoon</span><div class="coverage-track"><i style="width:76%"></i></div><strong>76%</strong></div>
+                  <div class="coverage-item"><span>Evening</span><div class="coverage-track"><i style="width:64%"></i></div><strong>64%</strong></div>
+                </div>
+              </section>
+              <section class="panel">
+                <div class="panel-head"><div><h3>Recent activity</h3><p>Shared operational awareness</p></div></div>
+                <div class="activity-list">
+                  <div class="activity-item"><i></i><span><strong>Time-away request approved</strong><br>Schedule and notification updated</span><time>12m</time></div>
+                  <div class="activity-item"><i></i><span><strong>Coverage handover recorded</strong><br>Next regional view refreshed</span><time>31m</time></div>
+                  <div class="activity-item"><i></i><span><strong>Readiness tag updated</strong><br>Profile history retained</span><time>1h</time></div>
+                </div>
+              </section>
+            </aside>
+          </div>
+        </section>
+
+        <section id="shift-management" class="tab-panel" role="tabpanel" hidden>
+          <div class="stats-grid">
+            <div class="stat-card"><span>Open shifts</span><strong>4</strong><small>Across sample week</small></div>
+            <div class="stat-card"><span>Pending requests</span><strong>3</strong><small>Awaiting review</small></div>
+            <div class="stat-card"><span>Call-outs</span><strong>1</strong><small>Coverage check active</small></div>
+            <div class="stat-card"><span>Task rotations</span><strong>6</strong><small>Scheduled today</small></div>
+          </div>
+          <section class="panel">
+            <div class="panel-head"><div><h3>Schedule & requests</h3><p>One workspace for leads, managers and engineers.</p></div><button class="feature-info" type="button" aria-label="About shift management" data-detail="feature-shifts">i</button></div>
+            <div class="toolbar" data-filter-group><div class="filter-pills"><button class="filter-pill active" type="button" data-filter="all">All</button><button class="filter-pill" type="button" data-filter="pending">Pending</button><button class="filter-pill" type="button" data-filter="approved">Approved</button></div><button class="outline-button" type="button" data-demo-action="A synthetic schedule export has been prepared.">Export view</button></div>
+            <div class="table-wrap">
+              <table class="data-table"><thead><tr><th>Team member</th><th>Activity</th><th>Period</th><th>Region</th><th>Status</th></tr></thead><tbody>
+                <tr tabindex="0" role="button" data-filter-value="pending" data-detail="request-project"><td><strong>Daniel R.</strong></td><td>Project work</td><td>14:00–16:00</td><td>Ireland</td><td><span class="status pending">Pending</span></td></tr>
+                <tr tabindex="0" role="button" data-filter-value="approved" data-detail="request-timeoff"><td><strong>Ana C.</strong></td><td>Time away</td><td>Tomorrow</td><td>EMEA</td><td><span class="status complete">Approved</span></td></tr>
+                <tr tabindex="0" role="button" data-filter-value="approved" data-detail="request-rotation"><td><strong>Maya K.</strong></td><td>Task rotation</td><td>16:00–18:00</td><td>Ireland</td><td><span class="status complete">Scheduled</span></td></tr>
+                <tr tabindex="0" role="button" data-filter-value="pending" data-detail="request-callout"><td><strong>Noah T.</strong></td><td>Call-out coverage</td><td>Evening</td><td>Regional</td><td><span class="status pending">Reviewing</span></td></tr>
+              </tbody></table>
+            </div>
+          </section>
+        </section>
+
+        <section id="readiness" class="tab-panel" role="tabpanel" hidden>
+          <div class="dashboard-grid">
+            <section class="panel">
+              <div class="panel-head"><div><h3>Capability profiles</h3><p>Configurable tags support planning without exposing restricted operational detail.</p></div><button class="feature-info" type="button" aria-label="About readiness profiles" data-detail="feature-readiness">i</button></div>
+              <div class="table-wrap"><table class="data-table"><thead><tr><th>Team member</th><th>Responsibility</th><th>Capability tags</th><th>Review</th></tr></thead><tbody>
+                <tr tabindex="0" role="button" data-detail="readiness-sofia"><td><strong>Sofia M.</strong></td><td>Shift lead</td><td><span class="tag">Lead</span><span class="tag">Response</span></td><td><span class="status ready">Current</span></td></tr>
+                <tr tabindex="0" role="button" data-detail="readiness-maya"><td><strong>Maya K.</strong></td><td>Engineer</td><td><span class="tag">Ops A</span><span class="tag">Mentor</span></td><td><span class="status ready">Current</span></td></tr>
+                <tr tabindex="0" role="button" data-detail="readiness-daniel"><td><strong>Daniel R.</strong></td><td>Engineer</td><td><span class="tag">Ops B</span><span class="tag">Project</span></td><td><span class="status pending">Due soon</span></td></tr>
+              </tbody></table></div>
+            </section>
+            <aside>
+              <section class="panel"><div class="panel-head"><div><h3>Readiness completion</h3><p>Synthetic overview</p></div></div><div class="metric-ring"><strong>82%</strong></div></section>
+              <section class="panel"><div class="panel-head"><div><h3>Access model</h3><p>Role-based views</p></div></div><div class="check-list"><div class="check-item"><span class="check-mark">✓</span><span><strong>Engineers</strong><small>Own status, requests and profile</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Leads</strong><small>Coverage and shift workflows</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Administrators</strong><small>Users, tags and page access</small></span></div></div></section>
+            </aside>
+          </div>
+        </section>
+
+        <section id="audits" class="tab-panel" role="tabpanel" hidden>
+          <div class="stats-grid"><div class="stat-card"><span>Changes this week</span><strong>28</strong><small>Illustrative total</small></div><div class="stat-card"><span>Approvals completed</span><strong>12</strong><small>Sample records</small></div><div class="stat-card"><span>Handover notes</span><strong>9</strong><small>Across regions</small></div><div class="stat-card"><span>Report status</span><strong>Ready</strong><small>Export available</small></div></div>
+          <div class="dashboard-grid">
+            <section class="panel"><div class="panel-head"><div><h3>Coverage activity</h3><p>Seven-day synthetic trend</p></div><button class="feature-info" type="button" aria-label="About audits" data-detail="feature-audits">i</button></div><div class="chart" aria-label="Synthetic activity bar chart"><div class="chart-bar" style="height:48%"><span>Mon</span></div><div class="chart-bar" style="height:66%"><span>Tue</span></div><div class="chart-bar primary" style="height:85%"><span>Wed</span></div><div class="chart-bar" style="height:72%"><span>Thu</span></div><div class="chart-bar" style="height:59%"><span>Fri</span></div><div class="chart-bar" style="height:39%"><span>Sat</span></div><div class="chart-bar" style="height:44%"><span>Sun</span></div></div></section>
+            <section class="panel"><div class="panel-head"><div><h3>Audit trail</h3><p>Recent configuration changes</p></div></div><div class="activity-list"><div class="activity-item"><i></i><span><strong>Shift assignment updated</strong><br>Change attributed and timestamped</span><time>09:14</time></div><div class="activity-item"><i></i><span><strong>Request approved</strong><br>Schedule state updated</span><time>08:52</time></div><div class="activity-item"><i></i><span><strong>Capability tag changed</strong><br>Profile history retained</span><time>Yesterday</time></div></div></section>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="build-dialog" class="modal">
+    <div class="modal-head"><div><h2>What I built</h2><p>My contribution to the original project, described at a safe level.</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div>
+    <div class="modal-body"><span class="synthetic-label">Portfolio reconstruction</span><p>I designed and developed a dynamic multi-region web application that consolidated operational coverage and shift coordination into one shared experience.</p><div class="build-grid"><div class="build-item"><span>Product design</span><strong>Translated team workflows into clear views and role-aware actions</strong></div><div class="build-item"><span>Front end</span><strong>Built responsive React interfaces with live multi-user state</strong></div><div class="build-item"><span>Workflows</span><strong>Implemented shifts, call-outs, rotations, requests and approvals</strong></div><div class="build-item"><span>Profiles</span><strong>Created configurable readiness, certification and responsibility tags</strong></div><div class="build-item"><span>Integration</span><strong>Connected event-driven team notifications for status changes</strong></div><div class="build-item"><span>Ownership</span><strong>Maintained the product, fixed defects and delivered improvements</strong></div></div><h3>Why it mattered</h3><p>The platform improved live awareness, simplified shift-lead coordination and supported smoother follow-the-sun handovers across different regional schedules.</p><h3>NDA boundary</h3><p>This demo communicates the problem, product capability and my engineering contribution. Its layout, labels, records and behaviour were created for this portfolio and are not copies of any employer system.</p></div>
+    <div class="modal-actions"><button class="solid-button" type="button" data-close-dialog>Close</button></div>
+  </dialog>
+
+  <dialog id="schedule-dialog" class="modal">
+    <div class="modal-head"><div><h2>Add schedule activity</h2><p>Demonstration of a multi-input workflow.</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div>
+    <div class="modal-body"><span class="synthetic-label">Demo only — not saved</span><div class="request-grid"><div class="field"><label for="activity-person">Team member</label><select id="activity-person"><option>Maya K.</option><option>Daniel R.</option><option>Liam P.</option></select></div><div class="field"><label for="activity-type">Activity type</label><select id="activity-type"><option>Project work</option><option>Meeting</option><option>Break</option><option>Time away</option></select></div><div class="field"><label for="activity-start">Start</label><input id="activity-start" type="time" value="14:00"></div><div class="field"><label for="activity-end">End</label><input id="activity-end" type="time" value="15:00"></div><div class="field wide"><label for="activity-note">Optional note</label><textarea id="activity-note">Example schedule activity using fictional data.</textarea></div></div></div>
+    <div class="modal-actions"><button class="solid-button" type="button" data-demo-action="Demo activity created locally. A real implementation would update authorised views and notifications." data-close-dialog>Add sample activity</button></div>
+  </dialog>
+
+  <dialog id="detail-dialog" class="modal"><div class="modal-head"><div><h2 data-detail-title>Feature detail</h2><p>Interactive product explanation</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div><div class="modal-body" data-detail-body></div><div class="modal-actions"><button class="solid-button" type="button" data-close-dialog>Close</button></div></dialog>
+
+  <template id="feature-live-status" data-title="Live status design"><p>I created a shared status model so engineers could record work away from the operational queue—such as projects, meetings and breaks—while leads retained a current coverage view. The labels and people shown here are fictional.</p></template>
+  <template id="feature-coverage" data-title="Coverage visualisation"><p>The product consolidated regional availability into a quick planning signal. This sample intentionally uses generic percentages rather than real staffing levels, thresholds or regional operating rules.</p></template>
+  <template id="feature-shifts" data-title="Shift workflow"><p>I designed workflows for shift setup, call-outs, task rotations, time-away requests and approvals. Role-aware actions allowed each audience to see and manage only the relevant parts of the process.</p></template>
+  <template id="feature-readiness" data-title="Flexible readiness profiles"><p>Administrators could manage configurable certifications, responsibility tags and visual identifiers. This supported planning as team capabilities evolved without hard-coding every change.</p></template>
+  <template id="feature-audits" data-title="Audits and reporting"><p>Reporting and change history made schedule activity easier to review, supported accountability and helped teams understand coverage patterns. All chart values in this preview are synthetic.</p></template>
+  <template id="person-maya" data-title="Maya K. — synthetic profile"><span class="synthetic-label">Fictional record</span><p><strong>Current status:</strong> In operations</p><p><strong>Shift:</strong> Day coverage · Ireland view</p><p><strong>Capability tags:</strong> Ops A, Mentor</p><p>A real authorised user could update availability, submit requests and review their own schedule from this profile.</p></template>
+  <template id="person-daniel" data-title="Daniel R. — synthetic profile"><span class="synthetic-label">Fictional record</span><p><strong>Current status:</strong> Project work</p><p><strong>Expected return:</strong> 16:00</p><p><strong>Capability tags:</strong> Ops B, Project</p><p>Status changes can refresh shared views and event-driven notifications.</p></template>
+  <template id="person-sofia" data-title="Sofia M. — synthetic profile"><span class="synthetic-label">Fictional record</span><p><strong>Current status:</strong> In operations</p><p><strong>Responsibility:</strong> Shift lead</p><p><strong>Current view:</strong> Regional coverage and approvals</p></template>
+  <template id="person-liam" data-title="Liam P. — synthetic profile"><span class="synthetic-label">Fictional record</span><p><strong>Current status:</strong> Break</p><p><strong>Expected return:</strong> 14:30</p><p>The return time allows leads to understand temporary availability without additional manual messages.</p></template>
+  <template id="request-project" data-title="Project activity request"><span class="synthetic-label">Fictional request</span><p>This example shows how planned activity can be submitted, reviewed and made visible in the coverage view after approval.</p></template>
+  <template id="request-timeoff" data-title="Approved time-away request"><span class="synthetic-label">Fictional request</span><p>The approved state can update the schedule and prepare a targeted team notification, removing duplicate status updates.</p></template>
+  <template id="request-rotation" data-title="Task rotation"><span class="synthetic-label">Fictional assignment</span><p>Rotation planning helps distribute recurring responsibilities while keeping the current assignment visible to the wider team.</p></template>
+  <template id="request-callout" data-title="Call-out coverage review"><span class="synthetic-label">Fictional event</span><p>A lead can review the coverage effect of a call-out and coordinate an appropriate schedule adjustment.</p></template>
+  <template id="readiness-sofia" data-title="Lead readiness profile"><p>This fictional profile illustrates responsibility and capability tags that can be administered without changing application code.</p></template>
+  <template id="readiness-maya" data-title="Engineer readiness profile"><p>This fictional profile combines operational capability and mentoring responsibility in a compact planning view.</p></template>
+  <template id="readiness-daniel" data-title="Upcoming profile review"><p>This sample state shows how a review due date can be surfaced without exposing sensitive certification or access details.</p></template>
+
+  <div id="demo-toast" class="demo-toast" role="status" aria-live="polite"></div>
+  <script src="mockups.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NDA-safe interactive reconstruction of an operational conference bridge dashboard by Eduardo Ferreira.">
+  <title>Bridge Dashboard Demo — Eduardo Ferreira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mockups.css">
+</head>
+<body data-demo="bridge-dashboard">
+  <header class="demo-topbar demo-shell">
+    <a class="demo-brand" href="../index.html" aria-label="Eduardo Ferreira home"><span class="demo-mark">EF</span><div>Project preview<small>Interactive portfolio demonstration</small></div></a>
+    <div class="topbar-actions"><button class="outline-button" type="button" data-open-dialog="build-dialog">What I built</button><a class="back-link" href="../portfolio.html#conference-hub">← Portfolio</a></div>
+  </header>
+
+  <div class="demo-shell">
+    <p class="nda-banner"><span class="nda-dot" aria-hidden="true"></span><strong>Safe reconstruction:</strong> Every event, person, region, metric and identifier below is fictional. No employer interface, event record or internal procedure is reproduced.</p>
+
+    <div class="app-frame">
+      <aside class="sidebar">
+        <div class="product-name"><span>Response demo</span><h1>Live Event Hub</h1></div>
+        <p class="side-label">Workspace</p>
+        <nav class="tab-list" role="tablist" aria-label="Bridge dashboard features">
+          <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="active-bridges" data-tab-target="active-bridges" data-page-title="Active events" data-page-summary="A current, structured view of operational conference activity and ownership."><span class="tab-icon">◉</span>Active events</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="reports" data-tab-target="reports" data-page-title="Reports" data-page-summary="Turn event records into consistent, downloadable operational summaries."><span class="tab-icon">▥</span>Reports</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="history" data-tab-target="history" data-page-title="Event history" data-page-summary="Search completed events and review an attributable change trail."><span class="tab-icon">↺</span>History</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="administration" data-tab-target="administration" data-page-title="Administration" data-page-summary="Manage authorised users, access roles and notification preferences."><span class="tab-icon">⚙</span>Administration</button>
+        </nav>
+        <div class="sidebar-foot"><strong>Structured source of truth</strong>Designed to replace repeated manual message editing with current, attributable event data.</div>
+      </aside>
+
+      <main class="app-main">
+        <header class="app-heading">
+          <div><p class="kicker">Operational coordination</p><h2 id="view-title">Active events</h2><p id="view-summary">A current, structured view of operational conference activity and ownership.</p></div>
+          <div class="heading-tools"><button class="outline-button" type="button" data-demo-action="The active-event view has been refreshed with synthetic data.">↻ Refresh</button><button class="solid-button" type="button" data-open-dialog="new-event-dialog">+ Add sample</button></div>
+        </header>
+
+        <section id="active-bridges" class="tab-panel" role="tabpanel">
+          <div class="stats-grid"><div class="stat-card"><span>Active events</span><strong>3</strong><small>Current synthetic view</small></div><div class="stat-card"><span>Owned</span><strong>2</strong><small>Assignment visible</small></div><div class="stat-card"><span>Awaiting owner</span><strong>1</strong><small>Action required</small></div><div class="stat-card"><span>Updated recently</span><strong>3</strong><small>Live sample state</small></div></div>
+          <div class="dashboard-grid">
+            <section class="panel">
+              <div class="panel-head"><div><h3>Event queue</h3><p>Select an event to see its safe demonstration record.</p></div><button class="feature-info" type="button" aria-label="About automated event intake" data-detail="feature-intake">i</button></div>
+              <div class="toolbar" data-filter-group><div class="filter-pills"><button class="filter-pill active" type="button" data-filter="all">All</button><button class="filter-pill" type="button" data-filter="high">High</button><button class="filter-pill" type="button" data-filter="standard">Standard</button></div></div>
+              <div class="bridge-list">
+                <button class="queue-card" type="button" data-filter-value="high" data-detail="event-104"><span class="priority-bar high"></span><span><h4>OPS-104 · Regional service review</h4><p>Region North · Updated 6 minutes ago</p></span><span class="queue-meta"><strong>Sofia M.</strong><small>In progress</small></span></button>
+                <button class="queue-card" type="button" data-filter-value="standard" data-detail="event-108"><span class="priority-bar"></span><span><h4>OPS-108 · Connectivity investigation</h4><p>Region West · Updated 14 minutes ago</p></span><span class="queue-meta"><strong>Unassigned</strong><small>Monitoring</small></span></button>
+                <button class="queue-card" type="button" data-filter-value="standard" data-detail="event-112"><span class="priority-bar low"></span><span><h4>OPS-112 · Facility coordination</h4><p>Region Central · Updated 22 minutes ago</p></span><span class="queue-meta"><strong>Maya K.</strong><small>Stabilised</small></span></button>
+              </div>
+            </section>
+
+            <aside>
+              <section class="panel">
+                <div class="panel-head"><div><h3>Selected event</h3><p>OPS-104 · Synthetic record</p></div><span id="bridge-status-badge" class="status review">In progress</span></div>
+                <div class="field"><label for="bridge-status-select">Update status</label><select id="bridge-status-select"><option value="review">In progress</option><option value="pending">Monitoring</option><option value="complete">Stabilised</option><option value="neutral">Closed</option></select></div>
+                <div class="field" style="margin-top:.8rem"><label>Current owner</label><input value="Sofia M." readonly></div>
+                <div class="form-actions"><button class="outline-button" type="button" data-demo-action="Ownership assigned to the demo user." data-next-label="Assigned to you">Assign to me</button><button class="solid-button" type="button" data-demo-action="A synthetic event update was prepared for the connected notification channel.">Publish update</button></div>
+              </section>
+              <section class="panel">
+                <div class="panel-head"><div><h3>Notification preview</h3><p>Event-driven team update</p></div><button class="feature-info" type="button" aria-label="About notifications" data-detail="feature-notifications">i</button></div>
+                <div class="code-card"><span class="note"># operational-updates</span><br><span class="key">OPS-104</span> status changed to <span class="value">In progress</span><br>Owner: Sofia M.<br>Updated: moments ago</div>
+              </section>
+            </aside>
+          </div>
+        </section>
+
+        <section id="reports" class="tab-panel" role="tabpanel" hidden>
+          <div class="stats-grid"><div class="stat-card"><span>Events this month</span><strong>34</strong><small>Synthetic total</small></div><div class="stat-card"><span>Median ownership</span><strong>4m</strong><small>Illustrative metric</small></div><div class="stat-card"><span>Closed records</span><strong>31</strong><small>Example data</small></div><div class="stat-card"><span>Report status</span><strong>Ready</strong><small>Generated view</small></div></div>
+          <div class="dashboard-grid">
+            <section class="panel"><div class="panel-head"><div><h3>Event activity</h3><p>Six-week synthetic trend</p></div><button class="feature-info" type="button" aria-label="About reports" data-detail="feature-reports">i</button></div><div class="chart" aria-label="Synthetic event activity chart"><div class="chart-bar" style="height:42%"><span>W1</span></div><div class="chart-bar" style="height:70%"><span>W2</span></div><div class="chart-bar primary" style="height:88%"><span>W3</span></div><div class="chart-bar" style="height:58%"><span>W4</span></div><div class="chart-bar" style="height:76%"><span>W5</span></div><div class="chart-bar" style="height:52%"><span>W6</span></div></div></section>
+            <section class="panel"><div class="panel-head"><div><h3>Generate report</h3><p>Consistent event documentation</p></div></div><div class="field"><label for="report-range">Date range</label><select id="report-range"><option>Last 7 days</option><option>Last 30 days</option><option>Custom range</option></select></div><div class="field" style="margin-top:.8rem"><label for="report-format">Format</label><select id="report-format"><option>Summary PDF</option><option>Structured CSV</option></select></div><div class="form-actions"><button class="solid-button" type="button" data-demo-action="A fictional report has been generated for demonstration.">Generate sample</button></div></section>
+          </div>
+        </section>
+
+        <section id="history" class="tab-panel" role="tabpanel" hidden>
+          <section class="panel">
+            <div class="panel-head"><div><h3>Completed events</h3><p>Retained records support review, reporting and accountable updates.</p></div><button class="feature-info" type="button" aria-label="About history" data-detail="feature-history">i</button></div>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>ID</th><th>Summary</th><th>Region</th><th>Owner</th><th>Closed</th><th>Result</th></tr></thead><tbody>
+              <tr tabindex="0" role="button" data-detail="history-091"><td><strong>OPS-091</strong></td><td>Service coordination</td><td>Region East</td><td>Alex J.</td><td>28 Aug</td><td><span class="status complete">Completed</span></td></tr>
+              <tr tabindex="0" role="button" data-detail="history-087"><td><strong>OPS-087</strong></td><td>Environmental review</td><td>Region North</td><td>Maya K.</td><td>26 Aug</td><td><span class="status complete">Completed</span></td></tr>
+              <tr tabindex="0" role="button" data-detail="history-079"><td><strong>OPS-079</strong></td><td>Network coordination</td><td>Region West</td><td>Sofia M.</td><td>21 Aug</td><td><span class="status complete">Completed</span></td></tr>
+            </tbody></table></div>
+          </section>
+          <section class="panel"><div class="panel-head"><div><h3>Recent audit activity</h3><p>Illustrative change trail</p></div></div><div class="timeline"><div class="timeline-step done"><span class="step-number">✓</span><span class="step-copy"><strong>Event closed</strong><p>User, time and final state retained.</p></span></div><div class="timeline-step done"><span class="step-number">✓</span><span class="step-copy"><strong>Final update published</strong><p>Connected notification channel refreshed.</p></span></div><div class="timeline-step done"><span class="step-number">✓</span><span class="step-copy"><strong>Report record prepared</strong><p>Structured event data available for reporting.</p></span></div></div></section>
+        </section>
+
+        <section id="administration" class="tab-panel" role="tabpanel" hidden>
+          <div class="dashboard-grid">
+            <section class="panel"><div class="panel-head"><div><h3>Users & access</h3><p>Role-based permissions for appropriate operational actions.</p></div><button class="feature-info" type="button" aria-label="About administration" data-detail="feature-admin">i</button></div><div class="table-wrap"><table class="data-table"><thead><tr><th>User</th><th>Role</th><th>Event access</th><th>Reports</th><th>Status</th></tr></thead><tbody><tr><td><strong>Sofia M.</strong></td><td>Lead</td><td>Manage</td><td>Generate</td><td><span class="status ready">Active</span></td></tr><tr><td><strong>Maya K.</strong></td><td>Contributor</td><td>Update assigned</td><td>View</td><td><span class="status ready">Active</span></td></tr><tr><td><strong>Alex J.</strong></td><td>Viewer</td><td>View</td><td>View</td><td><span class="status ready">Active</span></td></tr></tbody></table></div></section>
+            <aside><section class="panel"><div class="panel-head"><div><h3>Automation health</h3><p>Generic integration signals</p></div></div><div class="check-list"><div class="check-item"><span class="check-mark">✓</span><span><strong>Event intake</strong><small>Last sample update: 2m ago</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Notification delivery</strong><small>Demonstration channel ready</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>History retention</strong><small>Synthetic record store available</small></span></div></div></section></aside>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="build-dialog" class="modal">
+    <div class="modal-head"><div><h2>What I built</h2><p>My contribution to the original project, described at a safe level.</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div>
+    <div class="modal-body"><span class="synthetic-label">Portfolio reconstruction</span><p>I designed and developed a web application and supporting automation that replaced repeated manual conference-event updates in team messages with a structured, current dashboard.</p><div class="build-grid"><div class="build-item"><span>Automation</span><strong>Detected new event activity and prepared structured API updates</strong></div><div class="build-item"><span>Web product</span><strong>Created live ownership, detail, status and closure workflows</strong></div><div class="build-item"><span>Integration</span><strong>Connected event-driven team notifications when records changed</strong></div><div class="build-item"><span>Reporting</span><strong>Added downloadable summaries and retained event history</strong></div><div class="build-item"><span>Governance</span><strong>Implemented administration, access controls and attributable audit records</strong></div><div class="build-item"><span>Ownership</span><strong>Supported the service after launch through fixes and feature improvements</strong></div></div><h3>Why it mattered</h3><p>A single source of truth reduced the time and errors involved in manually creating, editing and removing event details across team messages.</p><h3>NDA boundary</h3><p>This reconstruction shows the product pattern and engineering contribution only. All names, identifiers, states, screen layouts, metrics and integration content were independently created for the portfolio.</p></div>
+    <div class="modal-actions"><button class="solid-button" type="button" data-close-dialog>Close</button></div>
+  </dialog>
+
+  <dialog id="new-event-dialog" class="modal">
+    <div class="modal-head"><div><h2>Add sample event</h2><p>Manual fallback demonstration.</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div>
+    <div class="modal-body"><span class="synthetic-label">Demo only — not saved</span><div class="request-grid"><div class="field"><label for="event-region">Region</label><select id="event-region"><option>Region North</option><option>Region West</option><option>Region Central</option></select></div><div class="field"><label for="event-priority">Priority</label><select id="event-priority"><option>Standard</option><option>High</option></select></div><div class="field wide"><label for="event-summary">Summary</label><input id="event-summary" value="Synthetic coordination event"></div><div class="field wide"><label for="event-note">Initial update</label><textarea id="event-note">Demonstration content only. No operational information.</textarea></div></div></div>
+    <div class="modal-actions"><button class="solid-button" type="button" data-demo-action="A fictional event was added to the local demonstration only." data-close-dialog>Add sample</button></div>
+  </dialog>
+
+  <dialog id="detail-dialog" class="modal"><div class="modal-head"><div><h2 data-detail-title>Feature detail</h2><p>Interactive product explanation</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div><div class="modal-body" data-detail-body></div><div class="modal-actions"><button class="solid-button" type="button" data-close-dialog>Close</button></div></dialog>
+
+  <template id="feature-intake" data-title="Automated event intake"><p>I created an automation path that could detect new conference activity, transform it into structured information and submit it through an API. This replaced repeated manual creation and message editing while retaining a manual fallback.</p></template>
+  <template id="feature-notifications" data-title="Event-driven notifications"><p>A connected bot published refreshed event information when ownership, details or status changed. This helped the team see the latest state without someone rewriting the same message by hand.</p></template>
+  <template id="feature-reports" data-title="Structured reports"><p>Because event data was stored consistently, the application could generate operational reports without reconstructing records from chat history. The values shown here are entirely synthetic.</p></template>
+  <template id="feature-history" data-title="History and audit trail"><p>Completed events were retained for authorised review. Attributable changes improved traceability, and structured storage supported reporting and administration.</p></template>
+  <template id="feature-admin" data-title="Administration and access"><p>I included role-aware administration so access to event actions, reports and configuration could be controlled appropriately. This demo deliberately avoids real roles, permissions and identity systems.</p></template>
+  <template id="event-104" data-title="OPS-104 — synthetic event"><span class="synthetic-label">Fictional event</span><p><strong>Summary:</strong> Regional service review</p><p><strong>Owner:</strong> Sofia M.</p><p><strong>Status:</strong> In progress</p><p><strong>Last update:</strong> Coordination continuing; next sample update scheduled.</p><p>This generic record demonstrates ownership and live status without representing an actual operational event.</p></template>
+  <template id="event-108" data-title="OPS-108 — synthetic event"><span class="synthetic-label">Fictional event</span><p><strong>Summary:</strong> Connectivity investigation</p><p><strong>Owner:</strong> Unassigned</p><p><strong>Status:</strong> Monitoring</p><p>The visible unassigned state makes the next action clear and reduces ambiguity about ownership.</p></template>
+  <template id="event-112" data-title="OPS-112 — synthetic event"><span class="synthetic-label">Fictional event</span><p><strong>Summary:</strong> Facility coordination</p><p><strong>Owner:</strong> Maya K.</p><p><strong>Status:</strong> Stabilised</p><p>The event can be closed when the authorised user confirms the final state and reporting details.</p></template>
+  <template id="history-091" data-title="OPS-091 — completed sample"><span class="synthetic-label">Fictional event</span><p>A completed event with owner, timestamps, state history and report-ready structured data.</p></template>
+  <template id="history-087" data-title="OPS-087 — completed sample"><span class="synthetic-label">Fictional event</span><p>This retained sample illustrates searchable history and consistent closure records.</p></template>
+  <template id="history-079" data-title="OPS-079 — completed sample"><span class="synthetic-label">Fictional event</span><p>This record demonstrates how earlier updates can remain available for authorised review.</p></template>
+
+  <div id="demo-toast" class="demo-toast" role="status" aria-live="polite"></div>
+  <script src="mockups.js"></script>
+</body>
+</html>

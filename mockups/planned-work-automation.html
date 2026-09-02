@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NDA-safe interactive reconstruction of an AI-assisted planned work automation by Eduardo Ferreira.">
+  <title>Planned Work Automation Demo — Eduardo Ferreira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mockups.css">
+</head>
+<body data-demo="planned-work-automation">
+  <header class="demo-topbar demo-shell">
+    <a class="demo-brand" href="../index.html" aria-label="Eduardo Ferreira home"><span class="demo-mark">EF</span><div>Project preview<small>Interactive portfolio demonstration</small></div></a>
+    <div class="topbar-actions"><button class="outline-button" type="button" data-open-dialog="build-dialog">What I built</button><a class="back-link" href="../portfolio.html#planned-work-automation">← Portfolio</a></div>
+  </header>
+
+  <div class="demo-shell">
+    <p class="nda-banner"><span class="nda-dot" aria-hidden="true"></span><strong>Safe reconstruction:</strong> This demo uses invented requests, generic checks and a non-operational payload. It excludes internal rules, field names, schemas, thresholds, systems and procedures.</p>
+
+    <div class="app-frame">
+      <aside class="sidebar">
+        <div class="product-name"><span>Automation demo</span><h1>Work Request Flow</h1></div>
+        <p class="side-label">Workflow</p>
+        <nav class="tab-list" role="tablist" aria-label="Planned work automation stages">
+          <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="request-intake" data-tab-target="request-intake" data-page-title="Request intake" data-page-summary="Bring documentation, structured inputs and engineer notes into one review path."><span class="tab-icon">01</span>Request intake</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="ai-review" data-tab-target="ai-review" data-page-title="AI-assisted review" data-page-summary="Extract relevant context, identify gaps and keep a human decision point."><span class="tab-icon">02</span>AI review</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="structured-output" data-tab-target="structured-output" data-page-title="Structured output" data-page-summary="Convert reviewed information into a predictable format for downstream automation."><span class="tab-icon">03</span>Output</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="submission-log" data-tab-target="submission-log" data-page-title="Submission log" data-page-summary="Record outcomes and make automation activity easier to trace and support."><span class="tab-icon">04</span>Submission log</button>
+        </nav>
+        <div class="sidebar-foot"><strong>Human-controlled automation</strong>Designed to reduce recurring processing while preserving validation and accountable review.</div>
+      </aside>
+
+      <main class="app-main">
+        <header class="app-heading">
+          <div><p class="kicker">AI-assisted workflow</p><h2 id="view-title">Request intake</h2><p id="view-summary">Bring documentation, structured inputs and engineer notes into one review path.</p></div>
+          <div class="heading-tools"><button class="outline-button" type="button" data-open-dialog="safety-dialog">Safety design</button></div>
+        </header>
+
+        <section id="request-intake" class="tab-panel" role="tabpanel">
+          <div class="dashboard-grid">
+            <section class="panel">
+              <div class="panel-head"><div><h3>Sample planned-work request</h3><p>All content below was invented for this portfolio demo.</p></div><button class="feature-info" type="button" aria-label="About request intake" data-detail="feature-intake">i</button></div>
+              <div class="request-grid">
+                <div class="field"><label for="request-ref">Request reference</label><input id="request-ref" value="DEMO-PW-2048"></div>
+                <div class="field"><label for="request-category">System category</label><select id="request-category"><option>Cooling support</option><option>Power distribution</option><option>Network infrastructure</option></select></div>
+                <div class="field"><label for="request-date">Planned date</label><input id="request-date" type="date" value="2026-09-18"></div>
+                <div class="field"><label for="request-region">General area</label><select id="request-region"><option>Sample facility group A</option><option>Sample facility group B</option></select></div>
+                <div class="field wide"><label for="request-summary">Work summary</label><textarea id="request-summary">Routine maintenance on a redundant cooling component during an approved change window. Service continuity is expected to remain available.</textarea></div>
+                <div class="field wide"><label for="engineer-notes">Engineer notes</label><textarea id="engineer-notes">Confirm the request reference and timing before preparing downstream records. Route any ambiguity for human review.</textarea></div>
+              </div>
+              <div class="form-actions"><button id="run-analysis" class="solid-button" type="button">Run sample analysis</button></div>
+            </section>
+            <aside>
+              <section class="panel">
+                <div class="panel-head"><div><h3>Workflow progress</h3><p>Demonstration state</p></div></div>
+                <div class="timeline"><div class="timeline-step done"><span class="step-number">✓</span><span class="step-copy"><strong>Inputs collected</strong><p>Sample fields and notes are available.</p></span></div><div class="timeline-step active"><span class="step-number">2</span><span class="step-copy"><strong>Ready for analysis</strong><p>Start the synthetic AI-assisted review.</p></span></div><div class="timeline-step"><span class="step-number">3</span><span class="step-copy"><strong>Human validation</strong><p>Reviewer confirms the proposed structure.</p></span></div><div class="timeline-step"><span class="step-number">4</span><span class="step-copy"><strong>Controlled submission</strong><p>Validated output moves to automation.</p></span></div></div>
+              </section>
+              <section class="panel"><div class="panel-head"><div><h3>Input sources</h3><p>Combined for consistent review</p></div></div><div class="check-list"><div class="check-item"><span class="check-mark">✓</span><span><strong>Request fields</strong><small>Structured sample information</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Supporting context</strong><small>Generic reference content</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Engineer notes</strong><small>Free-text clarifications</small></span></div></div></section>
+            </aside>
+          </div>
+        </section>
+
+        <section id="ai-review" class="tab-panel" role="tabpanel" hidden>
+          <div class="stats-grid"><div class="stat-card"><span>Fields reviewed</span><strong>6</strong><small>Sample inputs</small></div><div class="stat-card"><span>Checks passed</span><strong>5</strong><small>Generic validation</small></div><div class="stat-card"><span>Review flags</span><strong>1</strong><small>Human confirmation</small></div><div class="stat-card"><span>Confidence</span><strong>High</strong><small>Illustrative label</small></div></div>
+          <div class="dashboard-grid">
+            <section class="panel">
+              <div class="panel-head"><div><h3>Analysis result</h3><p>Generic reasoning summary—not an operational decision.</p></div><button class="feature-info" type="button" aria-label="About AI-assisted review" data-detail="feature-ai-review">i</button></div>
+              <div class="check-list">
+                <div class="check-item"><span class="check-mark">✓</span><span><strong>Required context is present</strong><small>Reference, category, date and summary were identified.</small></span></div>
+                <div class="check-item"><span class="check-mark">✓</span><span><strong>Information is internally consistent</strong><small>The synthetic timing and description do not conflict.</small></span></div>
+                <div class="check-item"><span class="check-mark">✓</span><span><strong>Downstream format can be prepared</strong><small>Fields can be mapped into a generic structured payload.</small></span></div>
+                <div class="check-item"><span class="check-mark" style="background:var(--amber-soft);color:var(--amber)">!</span><span><strong>Human confirmation requested</strong><small>Reviewer should confirm the general area before submission.</small></span></div>
+              </div>
+              <div class="form-actions"><button id="build-output" class="solid-button" type="button">Confirm & build output</button></div>
+            </section>
+            <aside>
+              <section class="panel"><div class="panel-head"><div><h3>Extracted summary</h3><p>Portfolio-safe example</p></div></div><p class="muted" style="font-size:.8rem">Routine maintenance is planned for a redundant cooling component. The request includes a date, broad location, reference and instruction to route ambiguity for human review.</p></section>
+              <section class="panel"><div class="panel-head"><div><h3>Control points</h3><p>Responsible automation</p></div></div><div class="check-list"><div class="check-item"><span class="check-mark">✓</span><span><strong>Source-grounded</strong><small>Uses provided request content</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Schema validation</strong><small>Predictable field structure</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Human approval</strong><small>Submission remains controlled</small></span></div></div></section>
+            </aside>
+          </div>
+        </section>
+
+        <section id="structured-output" class="tab-panel" role="tabpanel" hidden>
+          <div class="dashboard-grid">
+            <section class="panel">
+              <div class="panel-head"><div><h3>Validated demonstration payload</h3><p>Generic field names and invented values only.</p></div><button class="feature-info" type="button" aria-label="About structured output" data-detail="feature-output">i</button></div>
+              <div class="code-card" aria-label="Synthetic structured output"><span class="note">{</span><br>&nbsp;&nbsp;<span class="key">"requestRef"</span>: <span class="value">"DEMO-PW-2048"</span>,<br>&nbsp;&nbsp;<span class="key">"systemCategory"</span>: <span class="value">"cooling_support"</span>,<br>&nbsp;&nbsp;<span class="key">"plannedDate"</span>: <span class="value">"2026-09-18"</span>,<br>&nbsp;&nbsp;<span class="key">"area"</span>: <span class="value">"sample_group_a"</span>,<br>&nbsp;&nbsp;<span class="key">"reviewOutcome"</span>: <span class="value">"human_confirmed"</span>,<br>&nbsp;&nbsp;<span class="key">"routingClass"</span>: <span class="value">"demonstration_only"</span><br><span class="note">}</span></div>
+              <div class="form-actions"><button class="outline-button" type="button" data-demo-action="Synthetic payload copied for demonstration.">Copy sample</button><button id="submit-sample" class="solid-button" type="button">Submit demo</button></div>
+            </section>
+            <aside>
+              <section class="panel"><div class="panel-head"><div><h3>Validation</h3><p>Ready for demonstration</p></div></div><div class="check-list"><div class="check-item"><span class="check-mark">✓</span><span><strong>Expected fields</strong><small>All generic keys are present</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Allowed values</strong><small>Sample types passed validation</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Reviewer state</strong><small>Human confirmation recorded</small></span></div></div></section>
+              <section class="panel"><div class="panel-head"><div><h3>Next stage</h3><p>Controlled handoff</p></div></div><p class="muted" style="font-size:.8rem">In the original product pattern, the validated structure was consumed by a script and an API-based work-management workflow. This preview makes no external connection.</p></section>
+            </aside>
+          </div>
+        </section>
+
+        <section id="submission-log" class="tab-panel" role="tabpanel" hidden>
+          <div class="stats-grid"><div class="stat-card"><span>Processed today</span><strong>18</strong><small>Synthetic total</small></div><div class="stat-card"><span>Validated</span><strong>16</strong><small>Sample records</small></div><div class="stat-card"><span>Needs review</span><strong>2</strong><small>Human queue</small></div><div class="stat-card"><span>Failed</span><strong>0</strong><small>Demonstration state</small></div></div>
+          <section class="panel">
+            <div class="panel-head"><div><h3>Automation activity</h3><p>Traceable outcomes help with support, troubleshooting and continuous improvement.</p></div><button class="feature-info" type="button" aria-label="About submission tracking" data-detail="feature-log">i</button></div>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Reference</th><th>Category</th><th>Review</th><th>Destination</th><th>Time</th><th>Outcome</th></tr></thead><tbody>
+              <tr id="new-log-row" hidden><td><strong>DEMO-PW-2048</strong></td><td>Cooling support</td><td>Human confirmed</td><td>Demo endpoint</td><td>Just now</td><td><span class="status complete">Recorded</span></td></tr>
+              <tr><td><strong>DEMO-PW-2042</strong></td><td>Power distribution</td><td>Validated</td><td>Demo endpoint</td><td>10:22</td><td><span class="status complete">Recorded</span></td></tr>
+              <tr><td><strong>DEMO-PW-2039</strong></td><td>Network infrastructure</td><td>Manual review</td><td>Review queue</td><td>09:48</td><td><span class="status pending">Review</span></td></tr>
+              <tr><td><strong>DEMO-PW-2036</strong></td><td>Cooling support</td><td>Validated</td><td>Demo endpoint</td><td>09:17</td><td><span class="status complete">Recorded</span></td></tr>
+            </tbody></table></div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="build-dialog" class="modal">
+    <div class="modal-head"><div><h2>What I built</h2><p>My contribution to the original project, described at a safe level.</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div>
+    <div class="modal-body"><span class="synthetic-label">Portfolio reconstruction</span><p>I developed an AI-assisted automation that analysed planned-work documentation, structured fields and engineers’ notes, then prepared validated output for a script and API-based work-management workflow.</p><div class="build-grid"><div class="build-item"><span>Prompt design</span><strong>Translated documented rules into a controlled analysis prompt</strong></div><div class="build-item"><span>Data handling</span><strong>Combined structured fields, source content and free-text requests</strong></div><div class="build-item"><span>Validation</span><strong>Checked required information and routed ambiguity for review</strong></div><div class="build-item"><span>Automation</span><strong>Prepared predictable output for scripts and API submission</strong></div><div class="build-item"><span>Operations</span><strong>Supported work-order preparation and expected-event handling</strong></div><div class="build-item"><span>Outcome</span><strong>Removed substantial recurring processing and triage effort</strong></div></div><h3>Why it mattered</h3><p>The combined workflow made a high-volume manual process faster and more consistent while retaining safe review points. It also reduced repetitive work related to expected events from approved planned activity.</p><h3>NDA boundary</h3><p>This demonstration excludes the original prompt, decision rules, field mappings, API schema, identifiers, system names, thresholds and operational procedures. The interface and every example were independently created for this portfolio.</p></div>
+    <div class="modal-actions"><button class="solid-button" type="button" data-close-dialog>Close</button></div>
+  </dialog>
+
+  <dialog id="safety-dialog" class="modal">
+    <div class="modal-head"><div><h2>Safety by design</h2><p>How the workflow keeps automation controlled.</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div>
+    <div class="modal-body"><div class="check-list"><div class="check-item"><span class="check-mark">✓</span><span><strong>Grounded inputs</strong><small>Analysis is limited to approved request context.</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Structured validation</strong><small>Expected formats are checked before downstream use.</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Human review</strong><small>Ambiguous or incomplete cases can be stopped and reviewed.</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Traceable outcomes</strong><small>Processing results support troubleshooting and improvement.</small></span></div></div><p>This is a conceptual explanation, not a disclosure of any employer control, rule or technical implementation.</p></div>
+    <div class="modal-actions"><button class="solid-button" type="button" data-close-dialog>Close</button></div>
+  </dialog>
+
+  <dialog id="detail-dialog" class="modal"><div class="modal-head"><div><h2 data-detail-title>Feature detail</h2><p>Interactive product explanation</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div><div class="modal-body" data-detail-body></div><div class="modal-actions"><button class="solid-button" type="button" data-close-dialog>Close</button></div></dialog>
+
+  <template id="feature-intake" data-title="Unified request intake"><p>The workflow combines structured request fields, supporting documentation and custom notes in one analysis path. The sample categories and fields shown here are generic and do not mirror an internal form.</p></template>
+  <template id="feature-ai-review" data-title="AI-assisted review"><p>I designed the prompt to extract relevant context, check completeness and highlight ambiguity. The automation supported human decisions; it did not replace accountable review. These checks are illustrative and not the original rules.</p></template>
+  <template id="feature-output" data-title="Predictable structured output"><p>Validated information was converted into a consistent structure that a script could use in a downstream API workflow. The keys, values and schema in this demo were invented and are not operational.</p></template>
+  <template id="feature-log" data-title="Traceability and support"><p>Processing outcomes can be recorded so unusual cases are easier to investigate. This also supports post-launch ownership: reviewing issues, pulling appropriate logs, fixing defects and improving the workflow over time.</p></template>
+
+  <div id="demo-toast" class="demo-toast" role="status" aria-live="polite"></div>
+  <script src="mockups.js"></script>
+</body>
+</html>

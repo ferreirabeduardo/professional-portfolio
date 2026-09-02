@@ -6,6 +6,9 @@ Personal portfolio website for Eduardo Ferreira, covering automation, AI integra
 
 - `index.html` — introduction, services, selected work and background
 - `portfolio.html` — project overview and case-study placeholders
+- `mockups/shift-planner.html` — interactive synthetic shift-planning demonstration
+- `mockups/bridge-dashboard.html` — interactive synthetic conference-event dashboard
+- `mockups/planned-work-automation.html` — interactive synthetic AI-assisted workflow
 - `assets/Eduardo_Ferreira_CV.pdf` — downloadable CV
 
 ## Run locally
@@ -14,7 +17,7 @@ Open `index.html` in a browser, or serve the folder with any static web server.
 
 ## Before publishing
 
-Review every project for NDA-safe wording, then add only approved screenshots, links and measurable outcomes.
+The interactive previews use fictional people, identifiers, events, metrics and workflows. Keep future additions similarly generalised, and add only approved screenshots, links and measurable outcomes.
 
 ## Deployment
 
