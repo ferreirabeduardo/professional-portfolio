@@ -12,160 +12,135 @@
 </head>
 <body data-demo="shift-planner">
   <header class="demo-topbar demo-shell">
-    <a class="demo-brand" href="../index.html" aria-label="Eduardo Ferreira home">
-      <span class="demo-mark">EF</span>
-      <div>Project preview<small>Interactive portfolio demonstration</small></div>
-    </a>
-    <div class="topbar-actions">
-      <button class="outline-button" type="button" data-open-dialog="build-dialog">What I built</button>
-      <a class="back-link" href="../portfolio.html#shift-planner">← Portfolio</a>
-    </div>
+    <a class="demo-brand" href="../index.html" aria-label="Eduardo Ferreira home"><span class="demo-mark">EF</span><div>Project preview<small>Interactive portfolio demonstration</small></div></a>
+    <div class="topbar-actions"><button class="outline-button" type="button" data-open-dialog="build-dialog">What I built</button><a class="back-link" href="../portfolio.html#shift-planner">← Portfolio</a></div>
   </header>
 
   <div class="demo-shell">
-    <p class="nda-banner"><span class="nda-dot" aria-hidden="true"></span><strong>Safe reconstruction:</strong> This interactive concept uses fictional people and synthetic data. It does not reproduce an employer interface, identifiers, data or operating procedures.</p>
+    <p class="nda-banner"><span class="nda-dot" aria-hidden="true"></span><strong>Safe reconstruction:</strong> Every person, team, location, schedule and metric below is fictional. The demo communicates product capability without copying an employer interface, terminology, identifiers, data or procedures.</p>
 
-    <div class="app-frame">
+    <div class="app-frame shift-planner-frame">
       <aside class="sidebar">
         <div class="product-name"><span>Operations demo</span><h1>Coverage Planner</h1></div>
         <p class="side-label">Workspace</p>
         <nav class="tab-list" role="tablist" aria-label="Shift planner features">
-          <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="live-coverage" data-tab-target="live-coverage" data-page-title="Live coverage" data-page-summary="A shared view of current availability and cross-region operational coverage."><span class="tab-icon">◉</span>Live coverage</button>
-          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="shift-management" data-tab-target="shift-management" data-page-title="Shift management" data-page-summary="Coordinate schedules, call-outs, task rotations and time-away requests."><span class="tab-icon">◫</span>Shift management</button>
-          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="readiness" data-tab-target="readiness" data-page-title="Team readiness" data-page-summary="Maintain flexible capability, certification and responsibility profiles."><span class="tab-icon">◇</span>Readiness</button>
-          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="audits" data-tab-target="audits" data-page-title="Audits & reports" data-page-summary="Review schedule changes, coverage patterns and completed approvals."><span class="tab-icon">▥</span>Audits & reports</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="live-coverage" data-tab-target="live-coverage" data-page-title="Live coverage" data-page-summary="See the active shift, current assignments and time away at a glance."><span class="tab-icon">◉</span>Dashboard</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="shift-management" data-tab-target="shift-management" data-page-title="Shift management" data-page-summary="Build the hourly rota, record absences and coordinate assignments."><span class="tab-icon">◫</span>Shift management</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="readiness" data-tab-target="readiness" data-page-title="Team readiness" data-page-summary="Review flexible capability and responsibility profiles for planning."><span class="tab-icon">◇</span>Team readiness</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="audits" data-tab-target="audits" data-page-title="Shift reports" data-page-summary="Search synthetic end-of-shift snapshots and export a sample report."><span class="tab-icon">▥</span>Reports</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="access-control" data-tab-target="access-control" data-page-title="Access control" data-page-summary="Demonstrate scoped administration and role-based page access."><span class="tab-icon">⌁</span>Admin access</button>
         </nav>
-        <div class="sidebar-foot"><strong>Follow-the-sun concept</strong>Designed for clearer coordination across regional shift structures and handovers.</div>
+        <div class="sidebar-foot"><strong>Follow-the-sun concept</strong>Designed for clearer coverage, handovers and role-aware coordination across regional teams.</div>
       </aside>
 
       <main class="app-main">
         <header class="app-heading">
-          <div><p class="kicker">Multi-region operations</p><h2 id="view-title">Live coverage</h2><p id="view-summary">A shared view of current availability and cross-region operational coverage.</p></div>
-          <div class="heading-tools">
-            <select id="region-select" class="select-control" aria-label="Select coverage region"><option value="ireland">Ireland</option><option value="emea">EMEA view</option><option value="global">Global view</option></select>
-            <button class="solid-button" type="button" data-open-dialog="schedule-dialog">+ Add activity</button>
-          </div>
+          <div><p class="kicker">Multi-region operations</p><h2 id="view-title">Live coverage</h2><p id="view-summary">See the active shift, current assignments and time away at a glance.</p></div>
+          <div class="heading-tools"><select id="region-select" class="select-control" aria-label="Select coverage region"><option value="north">North hub</option><option value="west">West hub</option><option value="global">All hubs</option></select><button class="solid-button" type="button" data-open-dialog="schedule-dialog">+ Add activity</button></div>
         </header>
 
         <section id="live-coverage" class="tab-panel" role="tabpanel">
-          <div class="stats-grid">
-            <div class="stat-card"><span>Scheduled today</span><strong data-region-stat>8</strong><small>Sample coverage</small></div>
-            <div class="stat-card"><span>In operations</span><strong data-region-stat>6</strong><small>Live synthetic state</small></div>
-            <div class="stat-card"><span>Planned activities</span><strong data-region-stat>1</strong><small>Visible to leads</small></div>
-            <div class="stat-card"><span>Time away</span><strong data-region-stat>1</strong><small>Approved request</small></div>
+          <section class="shift-live-banner" aria-label="Current synthetic shift">
+            <div><span class="live-label"><i></i> Active sample shift</span><h3><span data-active-team>Team Indigo</span> is live</h3><p>Lead: <strong data-active-lead>Sofia M.</strong><span></span>Support: <strong data-active-support>Maya K.</strong></p></div>
+            <div class="handover-countdown"><strong data-shift-countdown>02:18:42</strong><span>until handover</span></div>
+          </section>
+
+          <div class="stats-grid stats-grid-three">
+            <div class="stat-card queue-a"><span>Primary queue</span><strong data-region-stat>2</strong><small>Active assignments</small></div>
+            <div class="stat-card queue-b"><span>Secondary queue</span><strong data-region-stat>2</strong><small>Active assignments</small></div>
+            <div class="stat-card queue-away"><span>Outside coverage</span><strong data-region-stat>1</strong><small>Approved activity</small></div>
           </div>
 
-          <div class="dashboard-grid">
-            <section class="panel">
-              <div class="panel-head"><div><h3>Current team status</h3><p>Select a person to view the demonstration detail.</p></div><button class="feature-info" type="button" aria-label="About live status" data-detail="feature-live-status">i</button></div>
-              <div class="people-grid">
-                <button class="person-card" type="button" data-detail="person-maya"><span class="person-top"><span class="avatar">MK</span><span><strong>Maya K.</strong><small>Operations engineer</small></span></span><span class="status live">In operations</span></button>
-                <button class="person-card" type="button" data-detail="person-daniel"><span class="person-top"><span class="avatar">DR</span><span><strong>Daniel R.</strong><small>Operations engineer</small></span></span><span class="status project">Project work</span></button>
-                <button class="person-card" type="button" data-detail="person-sofia"><span class="person-top"><span class="avatar">SM</span><span><strong>Sofia M.</strong><small>Shift lead</small></span></span><span class="status live">In operations</span></button>
-                <button class="person-card" type="button" data-detail="person-liam"><span class="person-top"><span class="avatar">LP</span><span><strong>Liam P.</strong><small>Operations engineer</small></span></span><span class="status break">Break · back 14:30</span></button>
+          <section class="panel schedule-overview-panel">
+            <div class="panel-head"><div><h3>Shift schedule overview</h3><p>Scroll across the fictional hourly plan. Select a name for a quick profile.</p></div><div class="panel-actions"><span class="synthetic-chip">Synthetic data</span><button class="outline-button compact" type="button" data-open-dialog="schedule-dialog">Request time away</button><button class="feature-info" type="button" aria-label="About schedule overview" data-detail="feature-live-status">i</button></div></div>
+            <div class="schedule-scroller" tabindex="0" aria-label="Hourly coverage schedule">
+              <div class="schedule-grid">
+                <article class="schedule-column"><h4>07:00 <span>North</span></h4><div class="schedule-group"><span>Primary queue</span><div><button class="staff-chip teal" type="button" data-detail="person-maya">Maya K.</button><button class="staff-chip amber" type="button" data-detail="person-noah">Noah T.</button></div></div><div class="schedule-group"><span>Secondary queue</span><div><button class="staff-chip blue" type="button" data-detail="person-daniel">Daniel R.</button><button class="staff-chip violet" type="button" data-detail="person-sofia">Sofia M.</button></div></div><div class="schedule-group empty"><span>Breaks</span><em>None</em></div><div class="schedule-group"><span>Meetings</span><div><span class="activity-chip rose">Noah · 07:30–08:00</span></div></div><div class="schedule-group empty"><span>Projects</span><em>None</em></div></article>
+                <article class="schedule-column"><h4>08:00 <span>North</span></h4><div class="schedule-group"><span>Primary queue</span><div><button class="staff-chip teal" type="button" data-detail="person-maya">Maya K.</button><button class="staff-chip amber" type="button" data-detail="person-noah">Noah T.</button></div></div><div class="schedule-group"><span>Secondary queue</span><div><button class="staff-chip blue" type="button" data-detail="person-daniel">Daniel R.</button><button class="staff-chip violet" type="button" data-detail="person-sofia">Sofia M.</button></div></div><div class="schedule-group"><span>Breaks</span><div><span class="activity-chip green">Maya · 08:30–09:00</span></div></div><div class="schedule-group empty"><span>Meetings</span><em>None</em></div><div class="schedule-group empty"><span>Projects</span><em>None</em></div></article>
+                <article class="schedule-column"><h4>09:00 <span>North</span></h4><div class="schedule-group"><span>Primary queue</span><div><button class="staff-chip teal" type="button" data-detail="person-maya">Maya K.</button><button class="staff-chip amber" type="button" data-detail="person-noah">Noah T.</button></div></div><div class="schedule-group"><span>Secondary queue</span><div><button class="staff-chip blue" type="button" data-detail="person-daniel">Daniel R.</button><button class="staff-chip violet" type="button" data-detail="person-sofia">Sofia M.</button></div></div><div class="schedule-group empty"><span>Breaks</span><em>None</em></div><div class="schedule-group"><span>Meetings</span><div><span class="activity-chip blue-soft">Daniel · 09:00–09:15</span></div></div><div class="schedule-group empty"><span>Projects</span><em>None</em></div></article>
+                <article class="schedule-column"><h4>10:00 <span>North</span></h4><div class="schedule-group"><span>Primary queue</span><div><button class="staff-chip amber" type="button" data-detail="person-noah">Noah T.</button><button class="staff-chip violet" type="button" data-detail="person-sofia">Sofia M.</button></div></div><div class="schedule-group"><span>Secondary queue</span><div><button class="staff-chip teal" type="button" data-detail="person-maya">Maya K.</button><button class="staff-chip blue" type="button" data-detail="person-daniel">Daniel R.</button></div></div><div class="schedule-group"><span>Breaks</span><div><span class="activity-chip yellow">Sofia · 10:15–10:30</span></div></div><div class="schedule-group empty"><span>Meetings</span><em>None</em></div><div class="schedule-group" data-live-activity-slot><span>Projects</span><em>None</em></div></article>
+                <article class="schedule-column"><h4>11:00 <span>North</span></h4><div class="schedule-group"><span>Primary queue</span><div><button class="staff-chip violet" type="button" data-detail="person-sofia">Sofia M.</button><button class="staff-chip blue" type="button" data-detail="person-daniel">Daniel R.</button></div></div><div class="schedule-group"><span>Secondary queue</span><div><button class="staff-chip teal" type="button" data-detail="person-maya">Maya K.</button><button class="staff-chip amber" type="button" data-detail="person-noah">Noah T.</button></div></div><div class="schedule-group empty"><span>Breaks</span><em>None</em></div><div class="schedule-group"><span>Meetings</span><div><span class="activity-chip rose">Maya · 11:30–12:00</span></div></div><div class="schedule-group empty"><span>Projects</span><em>None</em></div></article>
+                <article class="schedule-column"><h4>12:00 <span>North</span></h4><div class="schedule-group"><span>Primary queue</span><div><button class="staff-chip violet" type="button" data-detail="person-sofia">Sofia M.</button><button class="staff-chip blue" type="button" data-detail="person-daniel">Daniel R.</button></div></div><div class="schedule-group"><span>Secondary queue</span><div><button class="staff-chip teal" type="button" data-detail="person-maya">Maya K.</button><button class="staff-chip amber" type="button" data-detail="person-noah">Noah T.</button></div></div><div class="schedule-group"><span>Breaks</span><div><span class="activity-chip green">Daniel · 12:15–12:45</span></div></div><div class="schedule-group empty"><span>Meetings</span><em>None</em></div><div class="schedule-group"><span>Projects</span><div><span class="activity-chip orange">Noah · 12:00–13:00</span></div></div></article>
               </div>
-            </section>
-
-            <aside>
-              <section class="panel">
-                <div class="panel-head"><div><h3>Coverage by period</h3><p>Illustrative staffing view</p></div><button class="feature-info" type="button" aria-label="About coverage indicators" data-detail="feature-coverage">i</button></div>
-                <div class="coverage-list">
-                  <div class="coverage-item"><span>Morning</span><div class="coverage-track"><i style="width:88%"></i></div><strong>88%</strong></div>
-                  <div class="coverage-item"><span>Afternoon</span><div class="coverage-track"><i style="width:76%"></i></div><strong>76%</strong></div>
-                  <div class="coverage-item"><span>Evening</span><div class="coverage-track"><i style="width:64%"></i></div><strong>64%</strong></div>
-                </div>
-              </section>
-              <section class="panel">
-                <div class="panel-head"><div><h3>Recent activity</h3><p>Shared operational awareness</p></div></div>
-                <div class="activity-list">
-                  <div class="activity-item"><i></i><span><strong>Time-away request approved</strong><br>Schedule and notification updated</span><time>12m</time></div>
-                  <div class="activity-item"><i></i><span><strong>Coverage handover recorded</strong><br>Next regional view refreshed</span><time>31m</time></div>
-                  <div class="activity-item"><i></i><span><strong>Readiness tag updated</strong><br>Profile history retained</span><time>1h</time></div>
-                </div>
-              </section>
-            </aside>
-          </div>
-        </section>
-
-        <section id="shift-management" class="tab-panel" role="tabpanel" hidden>
-          <div class="stats-grid">
-            <div class="stat-card"><span>Open shifts</span><strong>4</strong><small>Across sample week</small></div>
-            <div class="stat-card"><span>Pending requests</span><strong>3</strong><small>Awaiting review</small></div>
-            <div class="stat-card"><span>Call-outs</span><strong>1</strong><small>Coverage check active</small></div>
-            <div class="stat-card"><span>Task rotations</span><strong>6</strong><small>Scheduled today</small></div>
-          </div>
-          <section class="panel">
-            <div class="panel-head"><div><h3>Schedule & requests</h3><p>One workspace for leads, managers and engineers.</p></div><button class="feature-info" type="button" aria-label="About shift management" data-detail="feature-shifts">i</button></div>
-            <div class="toolbar" data-filter-group><div class="filter-pills"><button class="filter-pill active" type="button" data-filter="all">All</button><button class="filter-pill" type="button" data-filter="pending">Pending</button><button class="filter-pill" type="button" data-filter="approved">Approved</button></div><button class="outline-button" type="button" data-demo-action="A synthetic schedule export has been prepared.">Export view</button></div>
-            <div class="table-wrap">
-              <table class="data-table"><thead><tr><th>Team member</th><th>Activity</th><th>Period</th><th>Region</th><th>Status</th></tr></thead><tbody>
-                <tr tabindex="0" role="button" data-filter-value="pending" data-detail="request-project"><td><strong>Daniel R.</strong></td><td>Project work</td><td>14:00–16:00</td><td>Ireland</td><td><span class="status pending">Pending</span></td></tr>
-                <tr tabindex="0" role="button" data-filter-value="approved" data-detail="request-timeoff"><td><strong>Ana C.</strong></td><td>Time away</td><td>Tomorrow</td><td>EMEA</td><td><span class="status complete">Approved</span></td></tr>
-                <tr tabindex="0" role="button" data-filter-value="approved" data-detail="request-rotation"><td><strong>Maya K.</strong></td><td>Task rotation</td><td>16:00–18:00</td><td>Ireland</td><td><span class="status complete">Scheduled</span></td></tr>
-                <tr tabindex="0" role="button" data-filter-value="pending" data-detail="request-callout"><td><strong>Noah T.</strong></td><td>Call-out coverage</td><td>Evening</td><td>Regional</td><td><span class="status pending">Reviewing</span></td></tr>
-              </tbody></table>
             </div>
           </section>
         </section>
 
+        <section id="shift-management" class="tab-panel" role="tabpanel" hidden>
+          <section class="panel planner-setup">
+            <div class="panel-head"><div><h3>Shift setup</h3><p>Configure a fictional team before building the hourly rota.</p></div><button class="feature-info" type="button" aria-label="About shift management" data-detail="feature-shifts">i</button></div>
+            <div class="planner-config"><div class="field"><label for="shift-team">Team</label><select id="shift-team"><option>Team Indigo</option><option>Team Ember</option><option>Team Willow</option></select></div><div class="field"><label for="shift-lead">Shift lead</label><select id="shift-lead"><option>Sofia M.</option><option>Maya K.</option><option>Daniel R.</option></select></div><div class="field"><label for="support-lead">Support lead</label><select id="support-lead"><option>Maya K.</option><option>Daniel R.</option><option>Noah T.</option></select></div><div class="field"><label for="extra-member">Add team member</label><select id="extra-member"><option>Select person…</option><option>Elena V.</option><option>Leo B.</option><option>Amara J.</option></select></div></div>
+            <div class="management-summary"><div><span class="summary-label">Team members away</span><div class="away-chips"><span>Elena V. ×</span><span>Leo B. ×</span></div></div><div><span class="summary-label">Minimum coverage</span><div class="coverage-requirements"><span><strong>Primary</strong> 2 people / hour</span><span><strong>Secondary</strong> 2 people / hour</span></div></div></div>
+          </section>
+
+          <section class="panel schedule-management-panel">
+            <div class="toolbar schedule-toolbar"><div class="panel-title-inline"><h3>Schedule management</h3><p>Each selector represents one fictional hourly assignment.</p></div><div class="schedule-actions"><button class="solid-button compact" type="button" data-planner-action="populate">Auto-populate</button><button class="outline-button compact" type="button" data-planner-action="clear">Clear rota</button><button class="danger-button compact" type="button" data-planner-action="reset">Reset all</button><button class="violet-button compact" type="button" data-demo-action="A fictional team notification preview was prepared.">Notify team</button></div></div>
+            <div class="table-wrap rota-table-wrap"><table class="data-table rota-table"><thead><tr><th rowspan="2">Time</th><th class="queue-heading-a" colspan="3">Primary queue</th><th class="queue-heading-b" colspan="3">Secondary queue</th></tr><tr><th>Slot 1</th><th>Slot 2</th><th>Slot 3</th><th>Slot 1</th><th>Slot 2</th><th>Slot 3</th></tr></thead><tbody id="rota-body"></tbody></table></div>
+          </section>
+        </section>
+
         <section id="readiness" class="tab-panel" role="tabpanel" hidden>
-          <div class="dashboard-grid">
-            <section class="panel">
-              <div class="panel-head"><div><h3>Capability profiles</h3><p>Configurable tags support planning without exposing restricted operational detail.</p></div><button class="feature-info" type="button" aria-label="About readiness profiles" data-detail="feature-readiness">i</button></div>
-              <div class="table-wrap"><table class="data-table"><thead><tr><th>Team member</th><th>Responsibility</th><th>Capability tags</th><th>Review</th></tr></thead><tbody>
-                <tr tabindex="0" role="button" data-detail="readiness-sofia"><td><strong>Sofia M.</strong></td><td>Shift lead</td><td><span class="tag">Lead</span><span class="tag">Response</span></td><td><span class="status ready">Current</span></td></tr>
-                <tr tabindex="0" role="button" data-detail="readiness-maya"><td><strong>Maya K.</strong></td><td>Engineer</td><td><span class="tag">Ops A</span><span class="tag">Mentor</span></td><td><span class="status ready">Current</span></td></tr>
-                <tr tabindex="0" role="button" data-detail="readiness-daniel"><td><strong>Daniel R.</strong></td><td>Engineer</td><td><span class="tag">Ops B</span><span class="tag">Project</span></td><td><span class="status pending">Due soon</span></td></tr>
-              </tbody></table></div>
-            </section>
-            <aside>
-              <section class="panel"><div class="panel-head"><div><h3>Readiness completion</h3><p>Synthetic overview</p></div></div><div class="metric-ring"><strong>82%</strong></div></section>
-              <section class="panel"><div class="panel-head"><div><h3>Access model</h3><p>Role-based views</p></div></div><div class="check-list"><div class="check-item"><span class="check-mark">✓</span><span><strong>Engineers</strong><small>Own status, requests and profile</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Leads</strong><small>Coverage and shift workflows</small></span></div><div class="check-item"><span class="check-mark">✓</span><span><strong>Administrators</strong><small>Users, tags and page access</small></span></div></div></section>
-            </aside>
-          </div>
+          <section class="panel readiness-panel">
+            <div class="panel-head"><div><h3>Capability matrix</h3><p>Fictional capability flags help shift leads match coverage to the available team.</p></div><button class="feature-info" type="button" aria-label="About readiness profiles" data-detail="feature-readiness">i</button></div>
+            <div class="table-tools"><label class="search-field">Search people<input id="readiness-search" type="search" placeholder="Search fictional names…"></label><span class="synthetic-chip">8 sample profiles</span></div>
+            <div class="table-wrap"><table class="data-table capability-table"><thead><tr><th>Name</th><th>Alias</th><th>Team</th><th>Level 1</th><th>Level 2</th><th>Dispatch</th><th>Review</th><th>Coordination</th><th>Shift lead</th><th>Notes</th></tr></thead><tbody>
+              <tr data-readiness-row><td><strong>Maya Keller</strong></td><td>mkeller</td><td>Indigo</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td>Mentor</td></tr>
+              <tr data-readiness-row><td><strong>Sofia Mendes</strong></td><td>smendes</td><td>Indigo</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td>Shift lead</td></tr>
+              <tr data-readiness-row><td><strong>Daniel Reed</strong></td><td>dreed</td><td>Indigo</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td>—</td></tr>
+              <tr data-readiness-row><td><strong>Noah Taylor</strong></td><td>ntaylor</td><td>Indigo</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td>Level 2 in progress</td></tr>
+              <tr data-readiness-row><td><strong>Amara Jones</strong></td><td>ajones</td><td>Ember</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td>Trainer</td></tr>
+              <tr data-readiness-row><td><strong>Leo Bennett</strong></td><td>lbennett</td><td>Ember</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td>—</td></tr>
+              <tr data-readiness-row><td><strong>Elena Voss</strong></td><td>evoss</td><td>Willow</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td>Reviewer</td></tr>
+              <tr data-readiness-row><td><strong>Jon Park</strong></td><td>jpark</td><td>Willow</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td>—</td></tr>
+            </tbody></table></div>
+            <div class="training-key"><span>Trainer key</span><i class="key-blue"></i>Level 1<i class="key-teal"></i>Level 2<i class="key-green"></i>Dispatch<i class="key-amber"></i>Review<i class="key-violet"></i>Coordination</div>
+          </section>
         </section>
 
         <section id="audits" class="tab-panel" role="tabpanel" hidden>
-          <div class="stats-grid"><div class="stat-card"><span>Changes this week</span><strong>28</strong><small>Illustrative total</small></div><div class="stat-card"><span>Approvals completed</span><strong>12</strong><small>Sample records</small></div><div class="stat-card"><span>Handover notes</span><strong>9</strong><small>Across regions</small></div><div class="stat-card"><span>Report status</span><strong>Ready</strong><small>Export available</small></div></div>
-          <div class="dashboard-grid">
-            <section class="panel"><div class="panel-head"><div><h3>Coverage activity</h3><p>Seven-day synthetic trend</p></div><button class="feature-info" type="button" aria-label="About audits" data-detail="feature-audits">i</button></div><div class="chart" aria-label="Synthetic activity bar chart"><div class="chart-bar" style="height:48%"><span>Mon</span></div><div class="chart-bar" style="height:66%"><span>Tue</span></div><div class="chart-bar primary" style="height:85%"><span>Wed</span></div><div class="chart-bar" style="height:72%"><span>Thu</span></div><div class="chart-bar" style="height:59%"><span>Fri</span></div><div class="chart-bar" style="height:39%"><span>Sat</span></div><div class="chart-bar" style="height:44%"><span>Sun</span></div></div></section>
-            <section class="panel"><div class="panel-head"><div><h3>Audit trail</h3><p>Recent configuration changes</p></div></div><div class="activity-list"><div class="activity-item"><i></i><span><strong>Shift assignment updated</strong><br>Change attributed and timestamped</span><time>09:14</time></div><div class="activity-item"><i></i><span><strong>Request approved</strong><br>Schedule state updated</span><time>08:52</time></div><div class="activity-item"><i></i><span><strong>Capability tag changed</strong><br>Profile history retained</span><time>Yesterday</time></div></div></section>
-          </div>
+          <section class="panel reports-panel">
+            <div class="panel-head"><div><h3>Shift reports</h3><p>Search and export daily snapshots captured at handover.</p></div><button class="feature-info" type="button" aria-label="About reports" data-detail="feature-audits">i</button></div>
+            <div class="report-controls"><div class="filter-pills" data-report-filters><button class="filter-pill active" type="button" data-report-filter="all">All hubs</button><button class="filter-pill" type="button" data-report-filter="north">North</button><button class="filter-pill" type="button" data-report-filter="west">West</button></div><label class="date-filter">Period<select><option>Last 7 days</option><option>Last 30 days</option><option>Custom range</option></select></label><button class="solid-button compact" type="button" data-demo-action="Five fictional shift reports were prepared for export.">Export reports</button></div>
+            <div class="table-wrap"><table class="data-table report-table"><thead><tr><th>Date</th><th>Hub</th><th>Shift lead</th><th>Support</th><th>Team</th><th>People away</th><th>Requested by</th><th>Action</th></tr></thead><tbody>
+              <tr data-report-region="north"><td>Sample day 01</td><td><span class="tag">North</span></td><td>Sofia M.</td><td>Maya K.</td><td>Indigo</td><td>Elena V.</td><td>system.demo</td><td><button class="mini-action" type="button" data-demo-action="Opened fictional report for Sample day 01.">View</button></td></tr>
+              <tr data-report-region="west"><td>Sample day 02</td><td><span class="tag">West</span></td><td>Amara J.</td><td>Leo B.</td><td>Ember</td><td>—</td><td>system.demo</td><td><button class="mini-action" type="button" data-demo-action="Opened fictional report for Sample day 02.">View</button></td></tr>
+              <tr data-report-region="north"><td>Sample day 03</td><td><span class="tag">North</span></td><td>Maya K.</td><td>Daniel R.</td><td>Indigo</td><td>Noah T.</td><td>system.demo</td><td><button class="mini-action" type="button" data-demo-action="Opened fictional report for Sample day 03.">View</button></td></tr>
+              <tr data-report-region="west"><td>Sample day 04</td><td><span class="tag">West</span></td><td>Elena V.</td><td>Jon P.</td><td>Willow</td><td>Leo B.</td><td>system.demo</td><td><button class="mini-action" type="button" data-demo-action="Opened fictional report for Sample day 04.">View</button></td></tr>
+              <tr data-report-region="north"><td>Sample day 05</td><td><span class="tag">North</span></td><td>Sofia M.</td><td>Noah T.</td><td>Indigo</td><td>—</td><td>system.demo</td><td><button class="mini-action" type="button" data-demo-action="Opened fictional report for Sample day 05.">View</button></td></tr>
+            </tbody></table></div><p class="table-count"><strong data-report-count>5</strong> fictional records shown</p>
+          </section>
+        </section>
+
+        <section id="access-control" class="tab-panel" role="tabpanel" hidden>
+          <section class="panel access-panel">
+            <div class="panel-head"><div><h3>Admin access control</h3><p>Role-based access can be scoped by hub and page group.</p></div><button class="feature-info" type="button" aria-label="About admin access" data-detail="feature-access">i</button></div>
+            <form id="admin-form" class="admin-form"><label class="search-field">Fictional alias<input id="admin-alias" type="text" placeholder="e.g. sample.admin" required pattern="[A-Za-z0-9._-]+"></label><fieldset><legend>Hub access</legend><label><input type="checkbox" name="hub" value="North" checked> North</label><label><input type="checkbox" name="hub" value="West"> West</label><label><input type="checkbox" name="hub" value="Central"> Central</label><label><input type="checkbox" name="hub" value="South"> South</label></fieldset><button class="solid-button" type="submit">Add sample admin</button></form>
+            <div class="table-wrap"><table class="data-table admin-table"><thead><tr><th>Alias</th><th>Hubs</th><th>Pages controlled</th><th>Added by</th><th>Record</th><th>Actions</th></tr></thead><tbody id="admin-table-body">
+              <tr><td><strong>maya.demo</strong></td><td><span class="tag">North</span><span class="tag">West</span></td><td>4 pages</td><td>system.demo</td><td>Sample A</td><td><button class="mini-action" type="button" data-demo-action="Editing is simulated in this portfolio preview.">Edit</button><button class="mini-action danger" type="button" data-demo-action="Access removal is simulated; no account was changed.">Revoke</button></td></tr>
+              <tr><td><strong>sofia.demo</strong></td><td><span class="tag">North</span></td><td>6 pages</td><td>system.demo</td><td>Sample B</td><td><button class="mini-action" type="button" data-demo-action="Editing is simulated in this portfolio preview.">Edit</button><button class="mini-action danger" type="button" data-demo-action="Access removal is simulated; no account was changed.">Revoke</button></td></tr>
+              <tr><td><strong>amara.demo</strong></td><td><span class="tag">West</span><span class="tag">Central</span></td><td>3 pages</td><td>system.demo</td><td>Sample C</td><td><button class="mini-action" type="button" data-demo-action="Editing is simulated in this portfolio preview.">Edit</button><button class="mini-action danger" type="button" data-demo-action="Access removal is simulated; no account was changed.">Revoke</button></td></tr>
+            </tbody></table></div>
+          </section>
         </section>
       </main>
     </div>
   </div>
 
-  <dialog id="build-dialog" class="modal">
-    <div class="modal-head"><div><h2>What I built</h2><p>My contribution to the original project, described at a safe level.</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div>
-    <div class="modal-body"><span class="synthetic-label">Portfolio reconstruction</span><p>I designed and developed a dynamic multi-region web application that consolidated operational coverage and shift coordination into one shared experience.</p><div class="build-grid"><div class="build-item"><span>Product design</span><strong>Translated team workflows into clear views and role-aware actions</strong></div><div class="build-item"><span>Front end</span><strong>Built responsive React interfaces with live multi-user state</strong></div><div class="build-item"><span>Workflows</span><strong>Implemented shifts, call-outs, rotations, requests and approvals</strong></div><div class="build-item"><span>Profiles</span><strong>Created configurable readiness, certification and responsibility tags</strong></div><div class="build-item"><span>Integration</span><strong>Connected event-driven team notifications for status changes</strong></div><div class="build-item"><span>Ownership</span><strong>Maintained the product, fixed defects and delivered improvements</strong></div></div><h3>Why it mattered</h3><p>The platform improved live awareness, simplified shift-lead coordination and supported smoother follow-the-sun handovers across different regional schedules.</p><h3>NDA boundary</h3><p>This demo communicates the problem, product capability and my engineering contribution. Its layout, labels, records and behaviour were created for this portfolio and are not copies of any employer system.</p></div>
-    <div class="modal-actions"><button class="solid-button" type="button" data-close-dialog>Close</button></div>
-  </dialog>
+  <dialog id="build-dialog" class="modal"><div class="modal-head"><div><h2>What I built</h2><p>My contribution to the original project, described at a safe level.</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div><div class="modal-body"><span class="synthetic-label">Portfolio reconstruction</span><p>I designed and developed a dynamic multi-region web application that consolidated operational coverage and shift coordination into one shared experience.</p><div class="build-grid"><div class="build-item"><span>Product design</span><strong>Translated complex staffing workflows into clear, role-aware views</strong></div><div class="build-item"><span>Front end</span><strong>Built responsive React interfaces with shared application state</strong></div><div class="build-item"><span>Scheduling</span><strong>Created hourly assignments, absence tracking and auto-population workflows</strong></div><div class="build-item"><span>Profiles</span><strong>Built configurable readiness and responsibility matrices</strong></div><div class="build-item"><span>Governance</span><strong>Added reporting, audit history and scoped administrative access</strong></div><div class="build-item"><span>Ownership</span><strong>Maintained the product, fixed defects and delivered improvements</strong></div></div><h3>Why it mattered</h3><p>The platform improved live awareness, simplified shift-lead coordination and supported smoother handovers across different regional schedules.</p><h3>NDA boundary</h3><p>This demo communicates the problem, product capability and my engineering contribution. Its visual design, labels, identities, locations, schedules and records were created specifically for this public portfolio.</p></div><div class="modal-actions"><button class="solid-button" type="button" data-close-dialog>Close</button></div></dialog>
 
-  <dialog id="schedule-dialog" class="modal">
-    <div class="modal-head"><div><h2>Add schedule activity</h2><p>Demonstration of a multi-input workflow.</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div>
-    <div class="modal-body"><span class="synthetic-label">Demo only — not saved</span><div class="request-grid"><div class="field"><label for="activity-person">Team member</label><select id="activity-person"><option>Maya K.</option><option>Daniel R.</option><option>Liam P.</option></select></div><div class="field"><label for="activity-type">Activity type</label><select id="activity-type"><option>Project work</option><option>Meeting</option><option>Break</option><option>Time away</option></select></div><div class="field"><label for="activity-start">Start</label><input id="activity-start" type="time" value="14:00"></div><div class="field"><label for="activity-end">End</label><input id="activity-end" type="time" value="15:00"></div><div class="field wide"><label for="activity-note">Optional note</label><textarea id="activity-note">Example schedule activity using fictional data.</textarea></div></div></div>
-    <div class="modal-actions"><button class="solid-button" type="button" data-demo-action="Demo activity created locally. A real implementation would update authorised views and notifications." data-close-dialog>Add sample activity</button></div>
-  </dialog>
+  <dialog id="schedule-dialog" class="modal"><div class="modal-head"><div><h2>Add schedule activity</h2><p>Demonstration of a multi-input workflow.</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div><div class="modal-body"><span class="synthetic-label">Demo only — stored nowhere</span><div class="request-grid"><div class="field"><label for="activity-person">Team member</label><select id="activity-person"><option>Maya K.</option><option>Daniel R.</option><option>Noah T.</option></select></div><div class="field"><label for="activity-type">Activity type</label><select id="activity-type"><option>Project work</option><option>Meeting</option><option>Break</option><option>Time away</option></select></div><div class="field"><label for="activity-start">Start</label><input id="activity-start" type="time" value="10:00"></div><div class="field"><label for="activity-end">End</label><input id="activity-end" type="time" value="11:00"></div><div class="field wide"><label for="activity-note">Optional note</label><textarea id="activity-note">Fictional schedule activity for this portfolio demo.</textarea></div></div></div><div class="modal-actions"><button id="add-sample-activity" class="solid-button" type="button" data-demo-action="The fictional activity was added to the local preview only." data-close-dialog>Add sample activity</button></div></dialog>
 
   <dialog id="detail-dialog" class="modal"><div class="modal-head"><div><h2 data-detail-title>Feature detail</h2><p>Interactive product explanation</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div><div class="modal-body" data-detail-body></div><div class="modal-actions"><button class="solid-button" type="button" data-close-dialog>Close</button></div></dialog>
 
-  <template id="feature-live-status" data-title="Live status design"><p>I created a shared status model so engineers could record work away from the operational queue—such as projects, meetings and breaks—while leads retained a current coverage view. The labels and people shown here are fictional.</p></template>
-  <template id="feature-coverage" data-title="Coverage visualisation"><p>The product consolidated regional availability into a quick planning signal. This sample intentionally uses generic percentages rather than real staffing levels, thresholds or regional operating rules.</p></template>
-  <template id="feature-shifts" data-title="Shift workflow"><p>I designed workflows for shift setup, call-outs, task rotations, time-away requests and approvals. Role-aware actions allowed each audience to see and manage only the relevant parts of the process.</p></template>
-  <template id="feature-readiness" data-title="Flexible readiness profiles"><p>Administrators could manage configurable certifications, responsibility tags and visual identifiers. This supported planning as team capabilities evolved without hard-coding every change.</p></template>
-  <template id="feature-audits" data-title="Audits and reporting"><p>Reporting and change history made schedule activity easier to review, supported accountability and helped teams understand coverage patterns. All chart values in this preview are synthetic.</p></template>
-  <template id="person-maya" data-title="Maya K. — synthetic profile"><span class="synthetic-label">Fictional record</span><p><strong>Current status:</strong> In operations</p><p><strong>Shift:</strong> Day coverage · Ireland view</p><p><strong>Capability tags:</strong> Ops A, Mentor</p><p>A real authorised user could update availability, submit requests and review their own schedule from this profile.</p></template>
-  <template id="person-daniel" data-title="Daniel R. — synthetic profile"><span class="synthetic-label">Fictional record</span><p><strong>Current status:</strong> Project work</p><p><strong>Expected return:</strong> 16:00</p><p><strong>Capability tags:</strong> Ops B, Project</p><p>Status changes can refresh shared views and event-driven notifications.</p></template>
-  <template id="person-sofia" data-title="Sofia M. — synthetic profile"><span class="synthetic-label">Fictional record</span><p><strong>Current status:</strong> In operations</p><p><strong>Responsibility:</strong> Shift lead</p><p><strong>Current view:</strong> Regional coverage and approvals</p></template>
-  <template id="person-liam" data-title="Liam P. — synthetic profile"><span class="synthetic-label">Fictional record</span><p><strong>Current status:</strong> Break</p><p><strong>Expected return:</strong> 14:30</p><p>The return time allows leads to understand temporary availability without additional manual messages.</p></template>
-  <template id="request-project" data-title="Project activity request"><span class="synthetic-label">Fictional request</span><p>This example shows how planned activity can be submitted, reviewed and made visible in the coverage view after approval.</p></template>
-  <template id="request-timeoff" data-title="Approved time-away request"><span class="synthetic-label">Fictional request</span><p>The approved state can update the schedule and prepare a targeted team notification, removing duplicate status updates.</p></template>
-  <template id="request-rotation" data-title="Task rotation"><span class="synthetic-label">Fictional assignment</span><p>Rotation planning helps distribute recurring responsibilities while keeping the current assignment visible to the wider team.</p></template>
-  <template id="request-callout" data-title="Call-out coverage review"><span class="synthetic-label">Fictional event</span><p>A lead can review the coverage effect of a call-out and coordinate an appropriate schedule adjustment.</p></template>
-  <template id="readiness-sofia" data-title="Lead readiness profile"><p>This fictional profile illustrates responsibility and capability tags that can be administered without changing application code.</p></template>
-  <template id="readiness-maya" data-title="Engineer readiness profile"><p>This fictional profile combines operational capability and mentoring responsibility in a compact planning view.</p></template>
-  <template id="readiness-daniel" data-title="Upcoming profile review"><p>This sample state shows how a review due date can be surfaced without exposing sensitive certification or access details.</p></template>
+  <template id="feature-live-status" data-title="Live schedule design"><p>I created an hourly shared-status model so engineers could be assigned to different coverage queues while planned breaks, meetings, projects and time away remained visible to leads. The people, queue names, staffing levels and schedule shown here are entirely fictional.</p></template>
+  <template id="feature-shifts" data-title="Shift-building workflow"><p>I designed shift setup, absence handling, minimum-coverage configuration and auto-population workflows. The interaction pattern demonstrates the capability while deliberately omitting real rules, labels and thresholds.</p></template>
+  <template id="feature-readiness" data-title="Flexible readiness profiles"><p>Administrators could manage configurable capability and responsibility flags without changing application code. This helped leads understand which roles could be covered as teams evolved.</p></template>
+  <template id="feature-audits" data-title="Reports and history"><p>Daily snapshots and exportable reports made completed shifts easier to review and supported consistent handovers. Every report record in this preview is synthetic.</p></template>
+  <template id="feature-access" data-title="Scoped access control"><p>I implemented role-aware administration so approved users could be granted access to only the relevant regions and page groups. The aliases and permissions in this preview do not correspond to real accounts.</p></template>
+  <template id="person-maya" data-title="Maya K. — synthetic profile"><span class="synthetic-label">Fictional record</span><p><strong>Current assignment:</strong> Primary queue</p><p><strong>Team:</strong> Indigo · North hub</p><p><strong>Capability tags:</strong> Level 2, Mentor</p><p>A real authorised user could update availability and review their own schedule from this profile.</p></template>
+  <template id="person-daniel" data-title="Daniel R. — synthetic profile"><span class="synthetic-label">Fictional record</span><p><strong>Current assignment:</strong> Secondary queue</p><p><strong>Upcoming:</strong> Project activity at 10:00</p><p><strong>Capability tags:</strong> Level 2, Coordination</p></template>
+  <template id="person-sofia" data-title="Sofia M. — synthetic profile"><span class="synthetic-label">Fictional record</span><p><strong>Current assignment:</strong> Secondary queue</p><p><strong>Responsibility:</strong> Shift lead</p><p><strong>Current view:</strong> Coverage, approvals and handover</p></template>
+  <template id="person-noah" data-title="Noah T. — synthetic profile"><span class="synthetic-label">Fictional record</span><p><strong>Current assignment:</strong> Primary queue</p><p><strong>Upcoming:</strong> Project activity at 12:00</p><p><strong>Capability tags:</strong> Level 1, Dispatch</p></template>
 
   <div id="demo-toast" class="demo-toast" role="status" aria-live="polite"></div>
   <script src="mockups.js"></script>
