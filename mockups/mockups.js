@@ -419,11 +419,14 @@
   const bridgeStatus = one("#bridge-status-select");
   if (bridgeStatus) {
     bridgeStatus.addEventListener("change", () => {
+      const selectedStatus = bridgeStatus.options[bridgeStatus.selectedIndex].text;
       const badge = one("#bridge-status-badge");
       if (badge) {
-        badge.textContent = bridgeStatus.options[bridgeStatus.selectedIndex].text;
+        badge.textContent = selectedStatus;
         badge.className = `status ${bridgeStatus.value}`;
       }
+      const notificationStatus = one("#bridge-notification-status");
+      if (notificationStatus) notificationStatus.textContent = selectedStatus;
       showToast("Synthetic event status updated and a notification preview was prepared.");
     });
   }
