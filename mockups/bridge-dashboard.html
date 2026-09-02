@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="mockups.css">
+  <link rel="stylesheet" href="mockups.css?v=20260902-4">
 </head>
 <body data-demo="bridge-dashboard">
   <header class="demo-topbar demo-shell">
@@ -39,28 +39,29 @@
         </header>
 
         <section id="active-bridges" class="tab-panel" role="tabpanel">
-          <div class="stats-grid"><div class="stat-card"><span>Active events</span><strong>3</strong><small>Current synthetic view</small></div><div class="stat-card"><span>Owned</span><strong>2</strong><small>Assignment visible</small></div><div class="stat-card"><span>Awaiting owner</span><strong>1</strong><small>Action required</small></div><div class="stat-card"><span>Updated recently</span><strong>3</strong><small>Live sample state</small></div></div>
+          <div class="stats-grid"><div class="stat-card"><span>Active events</span><strong>4</strong><small>Current synthetic view</small></div><div class="stat-card"><span>Owned</span><strong>3</strong><small>Assignment visible</small></div><div class="stat-card"><span>Awaiting owner</span><strong>1</strong><small>Action required</small></div><div class="stat-card"><span>Updated recently</span><strong>4</strong><small>Live sample state</small></div></div>
           <div class="dashboard-grid">
             <section class="panel">
               <div class="panel-head"><div><h3>Event queue</h3><p>Select an event to see its safe demonstration record.</p></div><button class="feature-info" type="button" aria-label="About automated event intake" data-detail="feature-intake">i</button></div>
               <div class="toolbar" data-filter-group><div class="filter-pills"><button class="filter-pill active" type="button" data-filter="all">All</button><button class="filter-pill" type="button" data-filter="high">High</button><button class="filter-pill" type="button" data-filter="standard">Standard</button></div></div>
               <div class="bridge-list">
-                <button class="queue-card" type="button" data-filter-value="high" data-detail="event-104"><span class="priority-bar high"></span><span><h4>OPS-104 · Regional service review</h4><p>Region North · Updated 6 minutes ago</p></span><span class="queue-meta"><strong>Sofia M.</strong><small>In progress</small></span></button>
-                <button class="queue-card" type="button" data-filter-value="standard" data-detail="event-108"><span class="priority-bar"></span><span><h4>OPS-108 · Connectivity investigation</h4><p>Region West · Updated 14 minutes ago</p></span><span class="queue-meta"><strong>Unassigned</strong><small>Monitoring</small></span></button>
-                <button class="queue-card" type="button" data-filter-value="standard" data-detail="event-112"><span class="priority-bar low"></span><span><h4>OPS-112 · Facility coordination</h4><p>Region Central · Updated 22 minutes ago</p></span><span class="queue-meta"><strong>Maya K.</strong><small>Stabilised</small></span></button>
+                <button class="queue-card" type="button" data-filter-value="high" data-detail="event-104"><span class="priority-bar high"></span><span><h4>OPS-104 · Network connectivity impact</h4><p>Sample zone North · Updated 6 minutes ago</p></span><span class="queue-meta"><strong>Sofia M.</strong><small>In progress</small></span></button>
+                <button class="queue-card" type="button" data-filter-value="high" data-detail="event-108"><span class="priority-bar high"></span><span><h4>OPS-108 · Power interruption review</h4><p>Sample zone West · Updated 14 minutes ago</p></span><span class="queue-meta"><strong>Unassigned</strong><small>Monitoring</small></span></button>
+                <button class="queue-card" type="button" data-filter-value="standard" data-detail="event-112"><span class="priority-bar low"></span><span><h4>OPS-112 · High temperature event</h4><p>Sample zone Central · Updated 22 minutes ago</p></span><span class="queue-meta"><strong>Maya K.</strong><small>Everything looks fine</small></span></button>
+                <button class="queue-card" type="button" data-filter-value="standard" data-detail="event-116"><span class="priority-bar"></span><span><h4>OPS-116 · Network performance degradation</h4><p>Sample zone East · Updated 31 minutes ago</p></span><span class="queue-meta"><strong>Alex J.</strong><small>In progress</small></span></button>
               </div>
             </section>
 
             <aside>
               <section class="panel">
                 <div class="panel-head"><div><h3>Selected event</h3><p>OPS-104 · Synthetic record</p></div><span id="bridge-status-badge" class="status review">In progress</span></div>
-                <div class="field"><label for="bridge-status-select">Update status</label><select id="bridge-status-select"><option value="review">In progress</option><option value="pending">Monitoring</option><option value="complete">Stabilised</option><option value="neutral">Closed</option></select></div>
+                <div class="field"><label for="bridge-status-select">Update status</label><select id="bridge-status-select"><option value="review">In progress</option><option value="pending">Monitoring</option><option value="complete">Everything looks fine</option><option value="neutral">Closed</option></select></div>
                 <div class="field" style="margin-top:.8rem"><label>Current owner</label><input value="Sofia M." readonly></div>
                 <div class="form-actions"><button class="outline-button" type="button" data-demo-action="Ownership assigned to the demo user." data-next-label="Assigned to you">Assign to me</button><button class="solid-button" type="button" data-demo-action="A synthetic event update was prepared for the connected notification channel.">Publish update</button></div>
               </section>
               <section class="panel">
                 <div class="panel-head"><div><h3>Notification preview</h3><p>Event-driven team update</p></div><button class="feature-info" type="button" aria-label="About notifications" data-detail="feature-notifications">i</button></div>
-                <div class="code-card"><span class="note"># operational-updates</span><br><span class="key">OPS-104</span> status changed to <span class="value">In progress</span><br>Owner: Sofia M.<br>Updated: moments ago</div>
+                <div class="code-card"><span class="note"># demonstration-updates</span><br><span class="key">OPS-104</span> status changed to <span class="value" id="bridge-notification-status">In progress</span><br>Owner: Sofia M.<br>Updated: moments ago</div>
               </section>
             </aside>
           </div>
@@ -78,9 +79,9 @@
           <section class="panel">
             <div class="panel-head"><div><h3>Completed events</h3><p>Retained records support review, reporting and accountable updates.</p></div><button class="feature-info" type="button" aria-label="About history" data-detail="feature-history">i</button></div>
             <div class="table-wrap"><table class="data-table"><thead><tr><th>ID</th><th>Summary</th><th>Region</th><th>Owner</th><th>Closed</th><th>Result</th></tr></thead><tbody>
-              <tr tabindex="0" role="button" data-detail="history-091"><td><strong>OPS-091</strong></td><td>Service coordination</td><td>Region East</td><td>Alex J.</td><td>28 Aug</td><td><span class="status complete">Completed</span></td></tr>
-              <tr tabindex="0" role="button" data-detail="history-087"><td><strong>OPS-087</strong></td><td>Environmental review</td><td>Region North</td><td>Maya K.</td><td>26 Aug</td><td><span class="status complete">Completed</span></td></tr>
-              <tr tabindex="0" role="button" data-detail="history-079"><td><strong>OPS-079</strong></td><td>Network coordination</td><td>Region West</td><td>Sofia M.</td><td>21 Aug</td><td><span class="status complete">Completed</span></td></tr>
+              <tr tabindex="0" role="button" data-detail="history-091"><td><strong>OPS-091</strong></td><td>Power service restored</td><td>Sample zone East</td><td>Alex J.</td><td>28 Aug</td><td><span class="status neutral">Closed</span></td></tr>
+              <tr tabindex="0" role="button" data-detail="history-087"><td><strong>OPS-087</strong></td><td>Temperature alert cleared</td><td>Sample zone North</td><td>Maya K.</td><td>26 Aug</td><td><span class="status neutral">Closed</span></td></tr>
+              <tr tabindex="0" role="button" data-detail="history-079"><td><strong>OPS-079</strong></td><td>Network impact resolved</td><td>Sample zone West</td><td>Sofia M.</td><td>21 Aug</td><td><span class="status neutral">Closed</span></td></tr>
             </tbody></table></div>
           </section>
           <section class="panel"><div class="panel-head"><div><h3>Recent audit activity</h3><p>Illustrative change trail</p></div></div><div class="timeline"><div class="timeline-step done"><span class="step-number">✓</span><span class="step-copy"><strong>Event closed</strong><p>User, time and final state retained.</p></span></div><div class="timeline-step done"><span class="step-number">✓</span><span class="step-copy"><strong>Final update published</strong><p>Connected notification channel refreshed.</p></span></div><div class="timeline-step done"><span class="step-number">✓</span><span class="step-copy"><strong>Report record prepared</strong><p>Structured event data available for reporting.</p></span></div></div></section>
@@ -104,7 +105,7 @@
 
   <dialog id="new-event-dialog" class="modal">
     <div class="modal-head"><div><h2>Add sample event</h2><p>Manual fallback demonstration.</p></div><button class="icon-button" type="button" aria-label="Close" data-close-dialog>×</button></div>
-    <div class="modal-body"><span class="synthetic-label">Demo only — not saved</span><div class="request-grid"><div class="field"><label for="event-region">Region</label><select id="event-region"><option>Region North</option><option>Region West</option><option>Region Central</option></select></div><div class="field"><label for="event-priority">Priority</label><select id="event-priority"><option>Standard</option><option>High</option></select></div><div class="field wide"><label for="event-summary">Summary</label><input id="event-summary" value="Synthetic coordination event"></div><div class="field wide"><label for="event-note">Initial update</label><textarea id="event-note">Demonstration content only. No operational information.</textarea></div></div></div>
+    <div class="modal-body"><span class="synthetic-label">Demo only — not saved</span><div class="request-grid"><div class="field"><label for="event-region">Sample zone</label><select id="event-region"><option>Sample zone North</option><option>Sample zone West</option><option>Sample zone Central</option><option>Sample zone East</option></select></div><div class="field"><label for="event-priority">Priority</label><select id="event-priority"><option>Standard</option><option>High</option></select></div><div class="field wide"><label for="event-summary">Event type</label><select id="event-summary"><option>Network connectivity impact</option><option>Power interruption</option><option>High temperature event</option><option>Network performance degradation</option></select></div><div class="field wide"><label for="event-note">Initial update</label><textarea id="event-note">Synthetic event under review. No operational information is included.</textarea></div></div></div>
     <div class="modal-actions"><button class="solid-button" type="button" data-demo-action="A fictional event was added to the local demonstration only." data-close-dialog>Add sample</button></div>
   </dialog>
 
@@ -115,14 +116,15 @@
   <template id="feature-reports" data-title="Structured reports"><p>Because event data was stored consistently, the application could generate operational reports without reconstructing records from chat history. The values shown here are entirely synthetic.</p></template>
   <template id="feature-history" data-title="History and audit trail"><p>Completed events were retained for authorised review. Attributable changes improved traceability, and structured storage supported reporting and administration.</p></template>
   <template id="feature-admin" data-title="Administration and access"><p>I included role-aware administration so access to event actions, reports and configuration could be controlled appropriately. This demo deliberately avoids real roles, permissions and identity systems.</p></template>
-  <template id="event-104" data-title="OPS-104 — synthetic event"><span class="synthetic-label">Fictional event</span><p><strong>Summary:</strong> Regional service review</p><p><strong>Owner:</strong> Sofia M.</p><p><strong>Status:</strong> In progress</p><p><strong>Last update:</strong> Coordination continuing; next sample update scheduled.</p><p>This generic record demonstrates ownership and live status without representing an actual operational event.</p></template>
-  <template id="event-108" data-title="OPS-108 — synthetic event"><span class="synthetic-label">Fictional event</span><p><strong>Summary:</strong> Connectivity investigation</p><p><strong>Owner:</strong> Unassigned</p><p><strong>Status:</strong> Monitoring</p><p>The visible unassigned state makes the next action clear and reduces ambiguity about ownership.</p></template>
-  <template id="event-112" data-title="OPS-112 — synthetic event"><span class="synthetic-label">Fictional event</span><p><strong>Summary:</strong> Facility coordination</p><p><strong>Owner:</strong> Maya K.</p><p><strong>Status:</strong> Stabilised</p><p>The event can be closed when the authorised user confirms the final state and reporting details.</p></template>
+  <template id="event-104" data-title="OPS-104 — synthetic event"><span class="synthetic-label">Fictional event</span><p><strong>Event type:</strong> Network connectivity impact</p><p><strong>Owner:</strong> Sofia M.</p><p><strong>Status:</strong> In progress</p><p><strong>Last update:</strong> Connectivity checks continue across a fictional sample zone.</p><p>This generic record demonstrates ownership and live status without representing an actual operational event.</p></template>
+  <template id="event-108" data-title="OPS-108 — synthetic event"><span class="synthetic-label">Fictional event</span><p><strong>Event type:</strong> Power interruption review</p><p><strong>Owner:</strong> Unassigned</p><p><strong>Status:</strong> Monitoring</p><p>A generic power event remains under observation while ownership is assigned.</p></template>
+  <template id="event-112" data-title="OPS-112 — synthetic event"><span class="synthetic-label">Fictional event</span><p><strong>Event type:</strong> High temperature event</p><p><strong>Owner:</strong> Maya K.</p><p><strong>Status:</strong> Everything looks fine</p><p>Sample readings have returned to their invented normal range. An authorised user can close the event after final review.</p></template>
+  <template id="event-116" data-title="OPS-116 — synthetic event"><span class="synthetic-label">Fictional event</span><p><strong>Event type:</strong> Network performance degradation</p><p><strong>Owner:</strong> Alex J.</p><p><strong>Status:</strong> In progress</p><p>The sample record shows an active network-impact review without exposing systems, topology, thresholds or response procedures.</p></template>
   <template id="history-091" data-title="OPS-091 — completed sample"><span class="synthetic-label">Fictional event</span><p>A completed event with owner, timestamps, state history and report-ready structured data.</p></template>
   <template id="history-087" data-title="OPS-087 — completed sample"><span class="synthetic-label">Fictional event</span><p>This retained sample illustrates searchable history and consistent closure records.</p></template>
   <template id="history-079" data-title="OPS-079 — completed sample"><span class="synthetic-label">Fictional event</span><p>This record demonstrates how earlier updates can remain available for authorised review.</p></template>
 
   <div id="demo-toast" class="demo-toast" role="status" aria-live="polite"></div>
-  <script src="mockups.js"></script>
+  <script src="mockups.js?v=20260902-4"></script>
 </body>
 </html>
