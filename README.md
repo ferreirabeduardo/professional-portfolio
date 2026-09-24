@@ -4,7 +4,7 @@ Personal portfolio website for Eduardo Ferreira, covering automation, AI integra
 
 ## Pages
 
-- `index.html` — introduction, services, selected work and background
+- `index.html` — professional overview, experience, capabilities, credentials and education
 - `portfolio.html` — project overview and case-study placeholders
 - `mockups/shift-planner.html` — interactive synthetic shift-planning demonstration
 - `mockups/bridge-dashboard.html` — interactive synthetic conference-event dashboard
